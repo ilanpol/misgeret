@@ -42,12 +42,15 @@
         
         .page-break { page-break-before: always; }
         
+        .signature-section { page-break-inside: avoid; }
+        
         @media print {
             .form-section, .button-group, .no-print { display: none !important; }
             body { padding: 0; background: white; font-size: 12px; }
             .container { padding: 15px; }
             .page-break { page-break-before: always; }
             h2 { page-break-after: avoid; }
+            .signature-section { page-break-inside: avoid; page-break-before: avoid; }
         }
     </style>
 </head>
@@ -322,17 +325,17 @@
             
             <p>18.5. לחברה שיקול הדעת הבלעדי בבחירת העיתוי, האופן והמועד בו תממש זכויותיה. כל ויתור, ארכה או שתיקה לא ייחשבו כוויתור על זכות.</p>
             
-            <p>18.6. כל הנאמר בכתב זה בלשון רבים, מכוון ללשון יחיד במשמע וההיפך.</p>
+            <p style="margin-bottom: 8px;">18.6. כל הנאמר בכתב זה בלשון רבים, מכוון ללשון יחיד במשמע וההיפך.</p>
             
-            <p style="margin: 15px 0; font-weight: 700;">אני מאשר בזאת כי קראתי הסכם זה ולאחר שקראתיו חתמתי להלן:</p>
+            <p style="margin: 10px 0; font-weight: 700;" class="signature-section">אני מאשר בזאת כי קראתי הסכם זה ולאחר שקראתיו חתמתי להלן:</p>
             
-            <div style="margin: 15px 0; padding: 12px; border: 2px solid #333; background: #fafafa;">
+            <div style="margin: 10px 0; padding: 12px; border: 2px solid #333; background: #fafafa;" class="signature-section">
                 <p><strong>החותם בשם הלווה:</strong> <span class="highlight" id="d6">___</span> ת.ז <span class="highlight" id="d7">___</span></p>
                 <p style="margin: 10px 0;"><strong>חתימת הלווה:</strong> ______________</p>
                 <p><strong>תאריך:</strong> <span id="d8">___</span></p>
             </div>
             
-            <div class="info-box warning" style="margin: 15px 0;">
+            <div class="info-box warning signature-section" style="margin: 10px 0;">
                 <p><strong>אישור הלווה על קבלת טיוטת ההסכם לפני חתימתו ועיון בו:</strong></p>
                 <p>א. טיוטת ההסכם וטופס ריכוז פרטים הועברו לעיוני לפני חתימת ההסכם.</p>
                 <p>ב. התאפשר לי לפנות לנציגי החברה ולשאול כל שאלה.</p>
@@ -340,7 +343,7 @@
                 <p>ד. אני מצהיר בזאת כי במעמד חתימת הסכם זה, נמסר לי העתק מההסכם וטופס ריכוז הפרטים.</p>
             </div>
             
-            <div style="margin: 15px 0; padding: 8px; border: 1px solid #ddd;">
+            <div style="margin: 10px 0; padding: 8px; border: 1px solid #ddd;" class="signature-section">
                 <p><strong>חתימה:</strong> ______________ <strong>שם הלווה:</strong> <span id="d9">___</span></p>
             </div>
             
