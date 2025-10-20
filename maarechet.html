@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הסכם מסגרת לניכיון שיקים</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'David Libre', 'Times New Roman', serif; line-height: 1.4; background: #f5f5f5; padding: 15px; font-size: 11px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 25px; }
+        
+        .form-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+        .form-section h2 { color: white; margin-bottom: 12px; font-size: 20px; }
+        .form-section h3 { color: white; margin: 12px 0 8px; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 4px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .form-group label { display: block; color: white; margin-bottom: 4px; font-size: 12px; font-weight: 600; }
+        .form-group input { width: 100%; padding: 6px 10px; border-radius: 4px; font-size: 12px; border: 1px solid rgba(255,255,255,0.3); }
+        .button-group { display: flex; gap: 10px; margin: 12px 0; }
+        button { padding: 8px 18px; border: none; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; color: white; }
+        .btn-print { background: #667eea; }
+        .btn-reset { background: #f5576c; }
+        
+        .contract { margin-top: 20px; }
+        .contract h1 { text-align: center; font-size: 18px; margin-bottom: 8px; }
+        .contract h2 { font-size: 13px; margin: 8px 0 5px; border-bottom: 2px solid #667eea; padding-bottom: 3px; }
+        .contract h3 { font-size: 12px; margin: 6px 0 4px; font-weight: 600; }
+        .contract h4 { font-size: 11px; margin: 5px 0 3px; font-weight: 600; }
+        .contract p { margin-bottom: 4px; text-align: justify; line-height: 1.5; }
+        .contract ul, .contract ol { margin: 4px 0 4px 18px; }
+        .contract li { margin-bottom: 3px; }
+        
+        .info-box { background: #f8f9fa; border-right: 4px solid #667eea; padding: 6px; margin: 5px 0; font-size: 11px; }
+        .info-box p { margin-bottom: 3px; }
+        .info-box.warning { background: #fff3cd; border-right-color: #ffc107; }
+        .info-box.important { background: #f8d7da; border-right-color: #dc3545; }
+        
+        .highlight { background: #ffd700; padding: 2px 5px; border-radius: 2px; font-weight: 700; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 5px 0; font-size: 10px; }
+        table th, table td { border: 1px solid #ddd; padding: 3px; text-align: right; }
+        table th { background: #667eea; color: white; font-weight: 700; }
+        
+        .page-break { page-break-before: always; }
+        
+        @media print {
+            .form-section, .button-group, .no-print { display: none !important; }
+            body { padding: 0; background: white; font-size: 10px; }
+            .container { padding: 15px; }
+            .page-break { page-break-before: always; }
+            h2 { page-break-after: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- טופס מילוי -->
+        <div class="form-section no-print">
+            <h2>📝 מילוי פרטי ההסכם</h2>
+            
+            <h3>פרטים אישיים</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>שם מלא *</label><input type="text" id="fullName"></div>
+                <div class="form-group"><label>ת.ז *</label><input type="text" id="idNumber" maxlength="9"></div>
+                <div class="form-group"><label>תאריך לידה</label><input type="date" id="birthDate"></div>
+                <div class="form-group"><label>עוסק מורשה *</label><input type="text" id="businessNum"></div>
+            </div>
+            
+            <h3>כתובת</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>רחוב *</label><input type="text" id="street"></div>
+                <div class="form-group"><label>מספר *</label><input type="text" id="houseNum"></div>
+                <div class="form-group"><label>עיר *</label><input type="text" id="city"></div>
+                <div class="form-group"><label>מיקוד</label><input type="text" id="zipCode"></div>
+            </div>
+            
+            <h3>קשר</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>נייד *</label><input type="tel" id="mobilePhone"></div>
+                <div class="form-group"><label>טלפון נוסף</label><input type="tel" id="additionalPhone"></div>
+                <div class="form-group"><label>דוא"ל *</label><input type="email" id="email"></div>
+                <div class="form-group"><label>תאריך *</label><input type="date" id="signDate"></div>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-print" onclick="window.print()">🖨️ הדפס</button>
+                <button class="btn-reset" onclick="resetForm()">🔄 נקה</button>
+            </div>
+        </div>
+        
+        <!-- ההסכם המלא -->
+        <div class="contract">
+            <h1>הסכם מסגרת לניכיון שיקים</h1>
+            
+            <p style="text-align: center; margin-bottom: 10px;">שנערך ונחתם בראש העין ביום <span class="highlight" id="d1">___</span></p>
+            
+            <p><strong>בין:</strong> ניר חן יזמות בע"מ, ח.פ. 513475376, מרח' המלאכה 8 פארק אפק ראש העין (להלן: "החברה").</p>
+            <p style="margin: 8px 0; text-align: center;"><strong>מצד אחד;</strong></p>
+            
+            <p><strong>ובין:</strong> <span class="highlight" id="d2">___</span>, מספר ת.ז <span class="highlight" id="d3">___</span>, מ-<span id="d4">___</span> טל' <span id="d5">___</span> (להלן: "הלווה").</p>
+            <p style="margin: 8px 0; text-align: center;"><strong>מצד שני;</strong></p>
+            
+            <p style="margin: 10px 0;"><strong>הואיל:</strong> והלווה ביקש מהחברה לפעול מול החברה ולהגיש לה שיקים לניכיון והחברה הסכימה לכך בכפוף לתנאים המפורטים בהסכם זה להלן;</p>
+            <p><strong>והואיל:</strong> והצדדים מעוניינים להסדיר ביניהם את מכלול הזכויות והחובות שיחולו בקשר להלוואה כאמור;</p>
+            
+            <p style="margin: 10px 0; font-weight: 700;">לפיכך הוסכם בין הצדדים כדלקמן:</p>
+            
+            <h3>נספחים המצורפים להסכם זה:</h3>
+            <p>נספח א' – טופס ריכוז פרטים | נספח ב' – טופס משלים | נספח ג' – פרטי חשבון הבנק של הלווה | נספח ד' – שטר חוב | נספח ה'– כתב ערבות</p>
+            
+            <h2>1. מבוא, פרשנות והגדרות</h2>
+            <p>1.1. המבוא להסכם זה ונספחיו מהווים חלק בלתי נפרד הימנו.</p>
+            <p>1.2. הכותרות בהסכם זה הן לנוחות בלבד ואין לעשות בהן כל שימוש לצורך פרשנות הסכם זה.</p>
+            <p>1.3. למונחים המפורטים להלן בהסכם תהא המשמעות המפורטת לצדם, כדלקמן:</p>
+            
+            <table>
+                <tr><th>מונח</th><th>הגדרה</th></tr>
+                <tr><td>הלווה</td><td>כהגדרתו במבוא, לרבות יורשיו, אפוטרופסיו ומנהלי עיזבונם</td></tr>
+                <tr><td>ההסדר התחיקתי</td><td>חוק איסור הלבנת הון, חוק איסור מימון טרור, חוק אשראי הוגן, חוק לצמצום השימוש במזומן, חוק הפיקוח על שירותים פיננסיים</td></tr>
+                <tr><td>טופס ריכוז פרטים</td><td>נספח א' - פרטים עיקריים בדבר ההלוואה</td></tr>
+                <tr><td>טופס משלים</td><td>נספח ב' - קבלה שתימסר בעת ניכיון</td></tr>
+                <tr><td>שיק</td><td>כל שיק שימסור הלווה לחברה שעומד בתנאי ההסכם</td></tr>
+                <tr><td>שיעור העלות הממשית</td><td>כהגדרתו בחוק אשראי הוגן - היחס שבין כל התוספות לבין הסכום שקיבל הלווה</td></tr>
+                <tr><td>שיעור העלות המרבית</td><td>כהגדרתו בחוק אשראי הוגן</td></tr>
+                <tr><td>תוספות</td><td>כל סכום שנדרש הלווה לשלם מעבר לסכום שקיבל, למעט ריבית פיגורים והוצאות גבייה</td></tr>
+            </table>
+            
+            <h2>2. הצהרות הלווה בבקשה למתן ההלוואה</h2>
+            <p>2.1. הלווה מצהיר, מאשר ומתחייב כדלקמן:</p>
+            <p>2.1.1. כי אין כל תנאי שבדין או בהסכם המונע ממנו להתקשר עם החברה בהסכם זה.</p>
+            <p>2.1.2. כי יקיים וימלא אחר כל התנאים וההתחייבויות החלים עליו במלואם ובמועדם.</p>
+            <p>2.1.3. כי ימציא לחברה מיד לכשיידרש לכך, כל מסמך הקשור עם השיקים.</p>
+            <p>2.1.4. כי איננו קטין וכי מלאו לו לפחות 21 שנים.</p>
+            <p>2.1.5. כי הנו בעל עסק ועוסק מורשה הרשום כדין, והבקשה לניכיון היא לצורכי העסק בלבד.</p>
+            <p>2.1.6. כי הוא מנהל את פעילותו הכספית והעסקית לפי כל הכללים הקבועים בהסדר התחיקתי.</p>
+            <p>2.1.7. טיוטת ההסכם הועברה לעיונו זמן סביר טרם חתימתה באופן אשר אפשר לו להבין את משמעותו.</p>
+            <p>2.1.8. כי לא מתנהל נגדו הליכי גבייה באמצעות תיק הוצל"פ ו/או תיק פשיטת רגל.</p>
+            <p>2.1.9. כי השירותים אותם מבקש אינם נועדים על מנת לעקוף את חובת הדיווח הקבועה בהסדר התחיקתי.</p>
+            
+            <p>2.2. מבלי לגרוע מכלליות האמור, הלווה מצהיר שיחולו בקשר לכל שיק כל הבאים:</p>
+            <p>2.2.1. השיק תקין ומקיים את כל התנאים הנדרשים לפירעונו.</p>
+            <p>2.2.2. השיק כולל את הסכום הנמשך בספרות וכן במילים.</p>
+            <p>2.2.3. השיק ערוך, חתום ומוסב בהתאם להוראות ההסדר התחיקתי.</p>
+            <p>2.2.4. כי השיקים יהיו פרי של עסקאות אמת שניתנה בגינן תמורה מלאה בתום לב.</p>
+            <p>2.2.5. אין התניה של מושך השיק על המועד שנדרש להציגו לצורך פירעונו.</p>
+            <p>2.2.6. כי השיקים שהוא מוסר לניכיון נמסרו לו כדין וכי נתן בגינם תמורה מלאה.</p>
+            <p>2.2.7. השיק אינו קשור ו/או נגוע בדבר עבירה.</p>
+            <p>2.2.8. השיק מועבר לבעלות המלאה של החברה.</p>
+            <p>2.2.9. שלא יכפור בסמכות וחתימות המושכים ו/או המסבים.</p>
+            <p>2.2.10. כי אינו משתמש בהליך ניכיון השיק לשם מטרות לא חוקיות.</p>
+            
+            <p>2.3. הלווה מתחייב להודיע לחברה על כל שינוי שחל בהצהרותיו או בפרטיו.</p>
+            <p>2.4. התחייבויות והצהרות הלווה הנן מוחלטות, בלתי חוזרות ובלתי ניתנות לביטול.</p>
+            
+            <h2>3. תנאים לקבלת השירותים, השירותים והתמורה</h2>
+            <p>3.1. החברה תבצע עבור הלווה פעולות של ניכיון שיקים, מעת לעת, לבקשת הלווה, בתנאי הסכם זה ולפי שיקול דעתה הבלעדי של החברה. לחברה אין חובה לנכות שיקים.</p>
+            
+            <p>3.2. הלווה רשאי למנות מיופי כוח מטעמו לפעולה אל מול החברה, ובלבד שעשה כן בכתב.</p>
+            
+            <p>3.3. לצורך מתן שירות הלווה יידרש לשתף פעולה עם דרישות ההסדר התחיקתי, ובכלל זה להשלים הליך הכרת לקוח.</p>
+            
+            <p>3.4. החברה רשאית לפנות לכל אחד מן הצדדים המופיעים על שיקים לבדיקות.</p>
+            
+            <p>3.5. אין בהוראות הסכם זה כדי לגרוע מהתחייבויות הלווה כלפי החברה לפי כתבים אחרים.</p>
+            
+            <p>3.6. לחברה לא תהא חובה לנכות שיקים. החברה רשאית לפי שיקול דעתה לסרב לנכות ללא חובת נימוק.</p>
+            
+            <p>3.7. במועד חתימת הסכם זה החברה תמסור לידי הלווה טופס ריכוז פרטים.</p>
+            
+            <p>3.8. לגבי כל שיק שהלווה הגיש לחברה, ושהחברה הסכימה לנכות, יחולו ההוראות שלהלן:</p>
+            <p>3.8.1. כנגד שיק שהחברה ניכתה תשלם החברה ללווה את סכום התמורה.</p>
+            <p>3.8.2. בתמורה לשירותי ניכיון תהא החברה זכאית לקבל עמלות וריביות כמפורט בטופס ריכוז הפרטים.</p>
+            <p>3.8.3. עמלת הניכיון תנוכה מסכום ההלוואה.</p>
+            <p>3.8.4. כנגד כל שיק שנוכה, תפיק החברה טופס משלים.</p>
+            <p>3.8.5. מקום בו נמסרו מספר שיקים בעת ובעונה אחת, רשאית החברה להפיק טופס משלים אחד.</p>
+            <p>3.8.6. הטופס המשלים ישמש גם כקבלה בגין ביצוע עסקת הניכיון.</p>
+            <p>3.8.7. סכום התמורה ישולם לחשבון הבנק שמסר לחברה (נספח ג') ו/או יזוכה ו/או ישולם במזומן.</p>
+            
+            <p>3.9. שיעור הריבית וסכומי העמלות יהיו כאמור בטופס ריכוז הפרטים.</p>
+            
+            <p>3.10. יובהר כי שיק המוגש לפירעון נפרע בפועל בתום 3 ימי ערך, ותקופה זו מצטברת על תקופת מתן האשראי.</p>
+            
+            <p>3.11. לחברה הזכות לשנות את שיעור הריבית או העמלות, ובלבד שהלווה אישר בכתב את השינויים.</p>
+            
+            <p>3.12. הלווה רשאי לבקש העברת כספים על סמך העתק צילומי של שיקים. החברה רשאית להתנות כל תנאי. אם לא הועברו השיקים בתוך יום עסקים, תקום חובת השבה מיידית.</p>
+            
+            <h2>4. הגבלת שיעור העלות הממשית של האשראי</h2>
+            <p>היחס שבין עמלת הניכיון לסכום התמורה, בחישוב שנתי (360 ימים בשנה), לא יעלה על שיעור העלות המרבית של האשראי הנקוב בטופס המשלים.</p>
+            
+            <h2>5. ריבית פיגורים</h2>
+            <p>5.1. לא נפרע שיק שמסר הלווה לניכיון, הלווה ישלם לחברה בתוך 3 ימים לכל המאוחר את סכום השיק במלואו, יחד עם ריבית הפיגורים.</p>
+            
+            <p>5.2. היה השיק חלק מסדרה, יהא על הלווה לשלם את סכום כל השיקים בסדרה, בתוך 3 ימים.</p>
+            
+            <p>5.3. שיעור ריבית הפיגורים לא יעלה על שיעור ריבית הפיגורים המרבי (36% שנתי).</p>
+            
+            <h2>6. עמלות והוצאות</h2>
+            <p>6.1. הלווה יישא בכל העמלות וההוצאות בהן תשא החברה לצורך ניכיון השיק.</p>
+            
+            <p>6.2. אלה העמלות וההוצאות:</p>
+            <p>6.2.1. הוצאות העמדת ההלוואה שלא יבואו בחישוב בעלות הממשית - כמפורט בטופס ריכוז הפרטים.</p>
+            <p>6.2.2. הוצאות שיבואו בחישוב בעלות הממשית - כמפורט בטופס ריכוז הפרטים.</p>
+            <p>6.2.3. הוצאות גבייה בפיגור - כמפורט בטופס ריכוז הפרטים.</p>
+            
+            <p>6.3. מובהר כי:</p>
+            <p>6.3.1. התחייבות הלווה לתשלום כוללת כל חיוב בשכר טרחה של באי כח החברה.</p>
+            <p>6.3.2. אם ייגרם לחברה נזק נוסף, הלווה ישפה את החברה.</p>
+            
+            <h2>7. פירעון מוקדם על ידי הלווה</h2>
+            <p>7.1. הלווה רשאי לפרוע את ההלוואה לפני מועד הפירעון, בכפוף לתנאים המפורטים.</p>
+            
+            <p>7.2. מובהר כי לא ניתן למשוך שיק אחד מתוך סדרת שיקים.</p>
+            
+            <p>7.3. על הלווה לעמוד בכל התנאים הבאים:</p>
+            <p>7.3.1. מסירת הודעה בכתב לפחות 7 ימי עסקים מראש.</p>
+            <p>7.3.2. תשלום סכום התמורה שקיבל.</p>
+            <p>7.3.3. תשלום דמי טיפול לפירעון מוקדם.</p>
+            <p>7.3.4. תשלום הגבוה מבין: (א) עמלת הניכיון / ימי ההלוואה × 30 ימים; (ב) נוסחת היוון אם פורסמה.</p>
+            
+            <p>7.4. לפני מתן הודעה, על הלווה לבדוק את עלויות הפירעון המוקדם.</p>
+            
+            <p>7.5. הלווה ימלא אחר הוראות חוק החוזים בדבר פירעון מוקדם.</p>
+            
+            <h2>8. קיום התחייבויות הלווה</h2>
+            <p>8.1. הלווה אחראי כלפי החברה וישלם כל חוב שייווצר בגין שיקים שחוללו.</p>
+            
+            <p>8.2. מוסכם ומובהר כי במקרה בו חולל שיק, ישולם ע"י הלווה בתוך 3 ימים לכל המאוחר. לא עשה כן הלווה, יהא בכך משום הפרה יסודית.</p>
+            
+            <p>8.3. היה השיק חלק מסדרה, רשאית החברה לדרוש מאת הלווה לשלם באותו המועד ולאלתר גם את כל השיקים הנוספים.</p>
+            
+            <p>8.4. הלווה פוטר בזאת את החברה מפניה מוקדמת אל צד אחר.</p>
+            
+            <p>8.5. לא ישלם הלווה את השיקים שחוללו, תהיה המלווה רשאית לאחוז בכל האמצעים הנתונים לה בדין.</p>
+            
+            <h2>הקדמת פירעון ע"י החברה - העמדה לפירעון מידי:</h2>
+            
+            <h2>9. החברה תהיה רשאית להקדים את מועד הפירעון אם התקיים איזה מהבאים:</h2>
+            <p>9.1.1. אם היה חשש ממשי לאי פירעון ההלוואה.</p>
+            <p>9.1.2. אם הסיכון לאי פירעון גדל בשיעור ניכר.</p>
+            <p>9.1.3. אם הייתה הפרה יסודית, ובכלל זה:</p>
+            <p>• פיגור בתשלום</p>
+            <p>• נפתחו כנגד הלווה תיק הוצל"פ</p>
+            <p>• הוגשה בקשה לפשיטת רגל</p>
+            <p>• הפרה שלא תוקנה תוך 7 ימים</p>
+            <p>• התברר שהצהרות הלווה אינן נכונות</p>
+            <p>9.1.4. אם עקב הוראות הדין, המשך קיום ההסכם הוא בלתי חוקי.</p>
+            
+            <p>9.2. לצורך הקדמת פירעון, תשלח החברה ללווה התראה הכוללת:</p>
+            <p>9.2.1. את הסיבה לפירעון המוקדם.</p>
+            <p>9.2.2. כי על הלווה לשלם את הסכום שבפיגור תוך 21 ימי עסקים.</p>
+            <p>9.2.3. פירוט הסכום שבפיגור ושיעור ריבית הפיגורים.</p>
+            <p>9.2.4. כל סכום מיתרת ההלוואה שיוקדם פרעונו.</p>
+            <p>9.2.5. התייחסות לצעדים המשפטיים שהחברה רשאית לנקוט.</p>
+            
+            <p>9.3. החברה לא תהיה חייבת למסור התראה אם קיימות נסיבות מיוחדות שבהן יש חשש לפגיעה ביכולת הגבייה.</p>
+            
+            <p>9.4. מובהר כי שיק שחולל ולא שולם תוך 3 ימים אינו מחייב משלוח התראה.</p>
+            
+            <p>9.5. הסתיימה התקופה ולא פעל הלווה, רשאית החברה להעמיד לפירעון מיידי.</p>
+            
+            <p>9.6. תיקן הלווה את ההפרה או פרע הסכום שבפיגור, לא ייחשב הדבר לוויתור על זכות להקדמה עתידית.</p>
+            
+            <p>9.7. בכל הליך משפטי בקשר לשיק, ישתף הלווה פעולה עם החברה באופן מוחלט.</p>
+            
+            <p>9.8. בכל הליך משפטי כנגד החברה בקשר לפעילות הלווה, ישתף הלווה פעולה ויימנע ממסירת מידע שעשוי לפגוע בחברה.</p>
+            
+            <h2>10. בטחונות</h2>
+            <p>החברה רשאית לדרוש מאת הלווה בכל עת בטחונות להמשך עריכת עסקאות ניכיון.</p>
+            <p>הלווה מתחייב להעמיד לחברה את הביטחונות המבוקשים במועד הראשון.</p>
+            <p>אי העמדת בטחונות יהווה עילה להעמדה לפירעון מידי.</p>
+            
+            <h2>11. ערבים</h2>
+            <p>11.1. הלווה מתחייב להעמיד ערבים כלפי החברה למילוי כל התחייבויותיו.</p>
+            
+            <p>11.2. כי למיטב ידיעתו אין כל מניעה חוקית לחתימת הערבים, וכי הערבים בעלי יכולת כלכלית לקיים את ערבותם.</p>
+            
+            <p>11.3. הערבים יחתמו על כתב ערבות בנוסח המצורף כנספח ה'.</p>
+            
+            <h2>12. חשבונות וספרי החברה</h2>
+            <p>12.1. מסמכי הנהלת החשבונות של החברה ייחשבו לראיה לכאורה באשר למצב החשבונאי של הלווה אצל החברה.</p>
+            
+            <p>12.2. כל מסמך לרבות פלט או תמליל הקלטה שנערך ע"י החברה יחשב לרשומה מוסדית כמשמעות המונח בפקודת הראיות.</p>
+            
+            <h2>13. קיזוז וזקיפת תשלומים</h2>
+            <p>13.1. הלווה מוותר בזאת על זכותו לקזז כל סכום כנגד חיובים.</p>
+            
+            <p>13.2. לחברה הזכות לקזז כל חיוב כנגד זכות של הלווה.</p>
+            
+            <p>13.3. הלווה יודע ומסכים כי החברה לא תהא מחויבת במימוש של ביטחון בטרם תפנה אל הלווה.</p>
+            
+            <p>13.4. לחברה הזכות הבלעדית בבחירת אופן זקיפת כל תשלום.</p>
+            
+            <h2>14. המחאת והעברת זכויות וחובות</h2>
+            <p>14.1. החברה רשאית בכל עת להמחות ו/או להסב את זכויותיה עפ"י הסכם זה, ללא הסכמת הלווה.</p>
+            
+            <p>14.2. כל נעבר יהיה רשאי אף הוא להסב את ההסכם ללא צורך בהסכמת הלווה.</p>
+            
+            <p>14.3. הסבה החברה את ההסכם – הלווה ישתף פעולה.</p>
+            
+            <p>14.4. הלווה ימלא ויקיים כלפי הנעבר את כל התחייבויותיו.</p>
+            
+            <p>14.5. החברה תהיה רשאית להעביר לנעבר את כל הפרטים והנתונים הקשורים ללווה.</p>
+            
+            <p>14.6. ללווה לא תעמוד זכות להעברת זכויותיו.</p>
+            
+            <h2>15. הודעה בנוגע לקבלת חיווי אשראי בהתאם לחוק נתוני אשראי, תשע"ו-2016</h2>
+            <p>לשם בחינת התקשרות בעסקה, תהא החברה רשאית לפנות לקבלת חיווי אשראי אודות הלווה מלשכת אשראי. לשכת האשראי תגיש לבנק ישראל בקשה לקבלת נתוני האשראי לגבי הלווה הכלולים במאגר נתוני האשראי של בנק ישראל.</p>
+            
+            <h2>16. שטר חוב</h2>
+            <p>להבטחת עמידת הלווה בכל התחייבויותיו, חותם הלווה במעמד החתימה על הסכם זה גם על שטר חוב (נספח ד'), החתום על החלק. לחברה הזכות למלא בשטר החוב את הסכום הנובע מחיובי הלווה ולהגישו לביצוע.</p>
+            
+            <h2>17. דין וסמכות</h2>
+            <p>הסכם זה יפורש עפ"י ובהתאם לדיני מדינת ישראל ולבימ"ש המוסמך בעיר תל אביב בלבד תהא הסמכות הבלעדית לדון בכל סכסוך שיתגלע בין הצדדים.</p>
+            
+            <h2>18. שונות</h2>
+            <p>18.1. הסכם זה אינו מוליד זכויות לצד ג' כלשהו.</p>
+            
+            <p>18.2. הלווה ישמור על סודיות כל פרט ו/או מידע שקיבל מהחברה.</p>
+            
+            <p>18.3. הסכם זה ממצה את כל המוסכם בין הצדדים. כל שינוי יהיה תקף אך ורק אם ייעשה בכתב וייחתם ע"י הצדדים.</p>
+            
+            <p>18.4. אם הלווה יפר איזו מהתחייבויותיו, לא יהא רשאי לטעון כי יש להימנע מתשלום לחברה.</p>
+            
+            <p>18.5. לחברה שיקול הדעת הבלעדי בבחירת העיתוי, האופן והמועד בו תממש זכויותיה. כל ויתור, ארכה או שתיקה לא ייחשבו כוויתור על זכות.</p>
+            
+            <p>18.6. כל הנאמר בכתב זה בלשון רבים, מכוון ללשון יחיד במשמע וההיפך.</p>
+            
+            <p style="margin: 15px 0; font-weight: 700;">אני מאשר בזאת כי קראתי הסכם זה ולאחר שקראתיו חתמתי להלן:</p>
+            
+            <div style="margin: 15px 0; padding: 12px; border: 2px solid #333; background: #fafafa;">
+                <p><strong>החותם בשם הלווה:</strong> <span class="highlight" id="d6">___</span> ת.ז <span class="highlight" id="d7">___</span></p>
+                <p style="margin: 10px 0;"><strong>חתימת הלווה:</strong> ______________</p>
+                <p><strong>תאריך:</strong> <span id="d8">___</span></p>
+            </div>
+            
+            <div class="info-box warning" style="margin: 15px 0;">
+                <p><strong>אישור הלווה על קבלת טיוטת ההסכם לפני חתימתו ועיון בו:</strong></p>
+                <p>א. טיוטת ההסכם וטופס ריכוז פרטים הועברו לעיוני לפני חתימת ההסכם.</p>
+                <p>ב. התאפשר לי לפנות לנציגי החברה ולשאול כל שאלה.</p>
+                <p>ג. על בסיס האמור, אני הסכמתי לחתום על הסכם זה.</p>
+                <p>ד. אני מצהיר בזאת כי במעמד חתימת הסכם זה, נמסר לי העתק מההסכם וטופס ריכוז הפרטים.</p>
+            </div>
+            
+            <div style="margin: 15px 0; padding: 8px; border: 1px solid #ddd;">
+                <p><strong>חתימה:</strong> ______________ <strong>שם הלווה:</strong> <span id="d9">___</span></p>
+            </div>
+            
+            <!-- נספחים -->
+            <div class="page-break"></div>
+            <h1 style="margin-top: 15px;">נספחים</h1>
+            
+            <h2>נספח א' – טופס ריכוז פרטים</h2>
+            <p style="font-size: 10px; margin-bottom: 5px;">ריכוז פרטים עיקריים בהסכם ניכיון שטר. הפרטים המופיעים להלן מהווים תמצית בלבד.</p>
+            
+            <table style="font-size: 9px;">
+                <tr><th colspan="2">פרטים כלליים</th></tr>
+                <tr><td>שם נותן שירותי האשראי</td><td>ניר חן יזמות בע"מ, 513475376</td></tr>
+                <tr><td>מען + דוא"ל + טלפון</td><td>המלאכה 8 ראש העין, Nirchen2010@gmail.com, 03-6047177</td></tr>
+                <tr><td>שם הלווה + מספר מזהה</td><td><span id="n1">___</span>, <span id="n2">___</span></td></tr>
+                <tr><td>מען הלווה</td><td><span id="n3">___</span></td></tr>
+                <tr><th colspan="2">ריבית פיגורים</th></tr>
+                <tr><td>שיעור ריבית הפיגורים</td><td>עלות האשראי × 1.2 בחישוב שנתי</td></tr>
+                <tr><td>שיעור ריבית פיגורים מרבי</td><td>עלות מרבית × 1.2 בחישוב שנתי, קרי 36% שנתי</td></tr>
+                <tr><th colspan="2">פירעון מוקדם</th></tr>
+                <tr><td colspan="2">זכות לפירעון מוקדם קיימת בכפוף לתנאים: הודעה 7 ימי עסקים, תשלום סכום התמורה, דמי טיפול, ועמלה מינימלית</td></tr>
+                <tr><th colspan="2">העמדה לפירעון מיידי</th></tr>
+                <tr><td colspan="2">החברה רשאית להעמיד לפירעון מיידי במקרה של חשש לאי-פירעון, הפרה יסודית (פיגור, הוצל"פ, פשיטת רגל), או שהצהרות אינן נכונות</td></tr>
+                <tr><td>זהות הגורם המפקח</td><td>רשות שוק ההון, ביטוח וחיסכון</td></tr>
+            </table>
+            
+            <h3 style="margin-top: 8px;">עמלות והוצאות נלוות להעמדת אשראי:</h3>
+            
+            <h4>הוצאות שבאות בחישוב שיעור העלות הממשית:</h4>
+            <table style="font-size: 9px;">
+                <tr><td>דמי גבייה (עמלה בגין כל שיק)</td><td>55 ש"ח כולל מע"מ</td></tr>
+                <tr><td>עמלת תשלומים מזומן</td><td>0.5% מהתמורה ללקוח כולל מע"מ</td></tr>
+                <tr><td>עמלת מוגבל</td><td>75 ש"ח כולל מע"מ</td></tr>
+                <tr><td>דמי טיפול לשינוי פירעון</td><td>25 ש"ח כולל מע"מ</td></tr>
+            </table>
+            
+            <h4>הוצאות שאינן באות בחישוב:</h4>
+            <p style="font-size: 9px;">הוצאות העמדת אשראי: הגבוה מבין 30 ₪ או לפי סכום ההלוואה (1.5%-1% לפי התנאים). הוצאות לצד שלישי: אגרות רישום, שמאי, שכ"ט עו"ד, ביטוח, משלוח שיק.</p>
+            
+            <h4>הוצאות גבייה בפיגור:</h4>
+            <table style="font-size: 9px;">
+                <tr><td>עמלת שיק חוזר</td><td>46 ש"ח כולל מע"מ</td></tr>
+                <tr><td>מכתב התראה מעו"ד</td><td>1% מגובה השיק (מינימום 300 ש"ח כולל מע"מ)</td></tr>
+                <tr><td>עלויות פתיחה וניהול תיק הוצל"פ</td><td>כקבוע בתקנות ההוצאה לפועל</td></tr>
+            </table>
+            
+            <div class="page-break"></div>
+            <h2>נספח ב' – פרטי עסקת הניכיון (מסמך משלים)</h2>
+            <p style="font-size: 9px;">טופס זה יופק בפועל עבור כל עסקת ניכיון.</p>
+            
+            <table style="font-size: 9px;">
+                <tr><th>פרט</th><th>ערך</th></tr>
+                <tr><td>מספר שטר</td><td>___</td></tr>
+                <tr><td>תאריך פירעון השטר</td><td>___</td></tr>
+                <tr><td>שם מושך השיק</td><td>___</td></tr>
+                <tr><td>סכום השטר (סכום ההלוואה)</td><td>___ ₪</td></tr>
+                <tr><td>כל סכום שינוכה מהשטר</td><td>___ ₪</td></tr>
+                <tr><td>סכום שקיבל הלווה בפועל</td><td>___ ₪</td></tr>
+                <tr><td>שיעור העלות הממשית</td><td>___% שנתי</td></tr>
+                <tr><td>שיעור העלות המרבית</td><td>___% שנתי</td></tr>
+            </table>
+            
+            <p style="font-size: 9px; margin-top: 5px;">הערה: ימי הריבית המובאים בחשבון הם הימים עד לפירעון השיק בתוספת 3 ימי ערך עד לפירעונו בפועל על ידי התאגיד הבנקאי.</p>
+            
+            <div class="page-break"></div>
+            <h2>נספח ג' – פרטי חשבון הבנק של הלווה</h2>
+            
+            <table style="font-size: 10px;">
+                <tr><td>שם בעל החשבון</td><td><span id="n4">___</span></td></tr>
+                <tr><td>מספר תעודת זהות</td><td><span id="n5">___</span></td></tr>
+                <tr><td>שם הבנק</td><td>___</td></tr>
+                <tr><td>מספר סניף</td><td>___</td></tr>
+                <tr><td>מספר חשבון</td><td>___</td></tr>
+            </table>
+            
+            <div class="info-box warning" style="margin-top: 8px; font-size: 10px;">
+                <p><strong>הצהרה:</strong> אני מצהיר בזאת כי החשבון הבנקאי המפורט לעיל רשום על שמי וכי אני מורה לחברה להעביר את תמורת ניכיון השיקים לחשבון זה.</p>
+                <p style="margin-top: 5px;"><strong>שם:</strong> <span id="n6">___</span> | <strong>תאריך:</strong> <span id="n7">___</span> | <strong>חתימה:</strong> __________</p>
+            </div>
+            
+            <div class="page-break"></div>
+            <h2>נספח ד' – שטר חוב (לא סחיר)</h2>
+            
+            <div style="border: 2px solid #333; padding: 12px; background: white;">
+                <h3 style="text-align: center; margin-bottom: 8px;">שטר חוב (לא סחיר)</h3>
+                <p style="font-size: 10px;">מס' שטר: _______________</p>
+                <p style="margin: 8px 0; font-size: 13px;"><strong>סך _________________ ₪</strong></p>
+                <p style="font-size: 10px;">(במילים: _____________________________________________ שקלים חדשים)</p>
+                
+                <p style="margin: 10px 0; font-size: 10px;">ב__________ ביום ______ בחודש _______ שנה _______</p>
+                
+                <p style="font-size: 10px; line-height: 1.5;">אני מתחייב לשלם נגד שטר זה לפקודת <strong>ניר חן יזמות בע"מ</strong>, ח.פ. <strong>513475376</strong>, את הסכום הנ"ל בתוספת כל התוספות, הריביות, העמלות וההוצאות המפורטות בהסכם המסגרת לניכיון שיקים מיום <span id="n8">___</span>.</p>
+                
+                <p style="margin: 8px 0; font-size: 10px;">התמורה התקבלה ב: ___________________________</p>
+                
+                <div style="margin: 10px 0; display: flex; justify-content: space-between;">
+                    <div><strong>מקום התשלום:</strong> ראש העין</div>
+                    <div><strong>תאריך:</strong> <span id="n9">___</span></div>
+                </div>
+                
+                <h4 style="margin: 10px 0;">חתימות עושי השטר:</h4>
+                <p style="font-size: 10px;"><strong>שם:</strong> <span id="n10">___</span> | <strong>ת.ז:</strong> <span id="n11">___</span></p>
+                <p style="font-size: 10px;"><strong>כתובת:</strong> <span id="n12">___</span></p>
+                <p style="margin-top: 8px;"><strong>חתימה:</strong></p>
+                <div style="border-bottom: 2px solid #000; height: 35px; margin: 5px 0;"></div>
+                
+                <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 9px;">
+                    <p><strong>במידה ומקום התשלום הוא בבנק:</strong></p>
+                    <p>שם הבנק: _______ | שם הסניף: _______ | מס' חשבון: _______</p>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            <h2>נספח ד1' – ערבות אוואל לשטר חוב</h2>
+            
+            <div style="border: 2px solid #333; padding: 12px; background: #fff3cd;">
+                <h3 style="margin-bottom: 8px;">ערבות אוואל</h3>
+                <p style="font-size: 10px; line-height: 1.5;">אנו הח"מ מטה, ערבים ביחד ולחוד, ערבות אוואל (ערבות מוחלטת ובלתי מסויגת), לתשלום שטר החוב על ידי עושה השטר. אחריותנו כאחריות עושה השטר עצמו, ואנו מוותרים על כל הגנה או זכות הנתונה לנו על פי חוק הערבות, התשכ"ז-1967.</p>
+                
+                <h4 style="margin: 8px 0;">פרטי הערבים:</h4>
+                
+                <div style="margin: 8px 0; padding: 8px; background: white; border: 1px solid #999;">
+                    <p style="font-size: 10px;"><strong>ערב 1:</strong></p>
+                    <p style="font-size: 10px;">שם: ___ | ת.ז: ___ | כתובת: ___ | טלפון: ___</p>
+                    <p style="margin-top: 5px;"><strong>חתימה:</strong></p>
+                    <div style="border-bottom: 2px solid #000; height: 30px;"></div>
+                </div>
+                
+                <div style="margin: 8px 0; padding: 8px; background: white; border: 1px solid #999;">
+                    <p style="font-size: 10px;"><strong>ערב 2:</strong></p>
+                    <p style="font-size: 10px;">שם: ___ | ת.ז: ___ | כתובת: ___ | טלפון: ___</p>
+                    <p style="margin-top: 5px;"><strong>חתימה:</strong></p>
+                    <div style="border-bottom: 2px solid #000; height: 30px;"></div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            <h2>נספח ה' – כתב ערבות</h2>
+            
+            <div style="border: 2px solid #333; padding: 12px;">
+                <p style="text-align: center; font-size: 10px; margin-bottom: 8px;">לכבוד ניר חן יזמות בע"מ, ח.פ. 513475376, מרח' המלאכה 8 פארק אפק ראש העין</p>
+                
+                <h3 style="text-align: center; margin: 10px 0;">כתב ערבות</h3>
+                
+                <p style="font-size: 10px;">אנו הח"מ, הערבים, מודיעים בזאת כי אנו ערבים ביחד ולחוד לקיום החיובים של הלווה:</p>
+                <p style="margin: 8px 0; font-size: 10px;"><strong>הלווה:</strong> <span id="n13">___</span>, ת.ז. <span id="n14">___</span></p>
+                
+                <div class="info-box warning" style="margin: 10px 0; font-size: 9px;">
+                    <p><strong>תנאי הערבות:</strong></p>
+                    <ol style="margin: 5px 0 5px 15px;">
+                        <li>אנו ערבים בערבות אוטונומית, בלתי חוזרת ובלתי ניתנת לצמצום, ביחד ולחוד.</li>
+                        <li>ערבותנו חלה על כל השיקים שינוכו מכוח הסכם המסגרת.</li>
+                        <li>אנו מוותרים על כל טענה והגנה המגיעה לנו מכוח חוק הערבות.</li>
+                        <li>החברה לא תהיה חייבת לפנות תחילה ללווה.</li>
+                        <li>ויתור או ארכה שתינתן ללווה לא תשחרר אותנו מערבותנו.</li>
+                    </ol>
+                </div>
+                
+                <h4 style="margin: 10px 0;">חתימות הערבים:</h4>
+                
+                <div style="margin: 8px 0; padding: 8px; background: #f9f9f9;">
+                    <p style="font-size: 10px;"><strong>ערב 1:</strong></p>
+                    <p style="font-size: 10px;">שם: ___ | ת.ז: ___ | כתובת: ___ | טלפון: ___</p>
+                    <p style="margin-top: 5px;"><strong>חתימה:</strong> __________ | <strong>תאריך:</strong> __________</p>
+                </div>
+                
+                <div style="margin: 8px 0; padding: 8px; background: #f9f9f9;">
+                    <p style="font-size: 10px;"><strong>ערב 2:</strong></p>
+                    <p style="font-size: 10px;">שם: ___ | ת.ז: ___ | כתובת: ___ | טלפון: ___</p>
+                    <p style="margin-top: 5px;"><strong>חתימה:</strong> __________ | <strong>תאריך:</strong> __________</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 15px; text-align: center; padding: 8px; background: #667eea; color: white; font-size: 9px;">
+                <p>מסמך זה נוצר בתאריך: <span id="n15">___</span></p>
+                <p style="margin-top: 4px;">© ניר חן יזמות בע"מ | כל הזכויות שמורות</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function update() {
+            const name = document.getElementById('fullName').value || '___';
+            const id = document.getElementById('idNumber').value || '___';
+            const street = document.getElementById('street').value;
+            const num = document.getElementById('houseNum').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zipCode').value;
+            const addr = (street && num && city) ? `${street} ${num}, ${city}${zip ? ', ' + zip : ''}` : '___';
+            const phone = document.getElementById('mobilePhone').value || '___';
+            const email = document.getElementById('email').value || '___';
+            const date = document.getElementById('signDate').value;
+            const fdate = date ? new Date(date).toLocaleDateString('he-IL') : '___';
+            
+            // עדכון כל המקומות בהסכם
+            for(let i=1; i<=9; i++) {
+                const el = document.getElementById('d'+i);
+                if(el) {
+                    if(i==1 || i==8) el.textContent = fdate;
+                    else if([2,6,9].includes(i)) el.textContent = name;
+                    else if([3,7].includes(i)) el.textContent = id;
+                    else if(i==4) el.textContent = addr;
+                    else if(i==5) el.textContent = phone;
+                }
+            }
+            
+            // עדכון נספחים
+            for(let i=1; i<=15; i++) {
+                const el = document.getElementById('n'+i);
+                if(el) {
+                    if([1,4,10,13].includes(i)) el.textContent = name;
+                    else if([2,5,11,14].includes(i)) el.textContent = id;
+                    else if([3,12].includes(i)) el.textContent = addr;
+                    else if([7,8,9,15].includes(i)) el.textContent = fdate;
+                    else if(i==6) el.textContent = name;
+                }
+            }
+        }
+        
+        document.querySelectorAll('input').forEach(el => el.addEventListener('input', update));
+        
+        function resetForm() {
+            if(confirm('לנקות הכל?')) {
+                document.querySelectorAll('input').forEach(el => el.value = '');
+                document.getElementById('signDate').valueAsDate = new Date();
+                update();
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('signDate').valueAsDate = new Date();
+            update();
+        });
+    </script>
+</body>
+</html>
