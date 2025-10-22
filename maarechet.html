@@ -850,8 +850,8 @@
                 const el = document.getElementById('d'+i);
                 if(el) {
                     if([1,8,11].includes(i)) el.textContent = fdate;
-                    else if([2,6,9,10].includes(i)) el.textContent = name;
-                    else if([3,7].includes(i)) el.textContent = id;
+                    else if([2,6,9].includes(i)) el.textContent = name;
+                    else if([3,7,10].includes(i)) el.textContent = id;
                     else if(i==4) el.textContent = addr;
                     else if(i==5) el.textContent = phone;
                 }
