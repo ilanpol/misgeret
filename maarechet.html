@@ -598,8 +598,8 @@
                 <p style="margin: 15px 0; font-weight: 700;">אני החתום מטה:</p>
                 
                 <p>שם: <span id="n21">___</span><span id="tradeNameDisplay3"></span></p>
-                <p>ת.ז: ___</p>
-                <p>כתובת: ___</p>
+                <p>ת.ז: <span id="n26">___</span></p>
+                <p>כתובת: <span id="n27">___</span></p>
                 <p>טלפון: <span id="n24">___</span></p>
                 
                 <p style="margin: 20px 0; line-height: 1.8;"><strong>מתחייב בזאת לשלם לפקודת</strong> ניר חן יזמות בע"מ, ח.פ. 513475376 (להלן: "המוטב"), את הסכום של <strong>_______________ ש"ח</strong> (במילים: _______________), בצירוף ריבית חודשית בשיעור של ___% לחודש, החל מהיום ועד לפירעון מלא ומוחלט של החוב.</p>
@@ -643,10 +643,10 @@
                 
                 <p style="margin: 15px 0; font-weight: 700;">אני החתום מטה מתחייב בזאת כלפי המוטב:</p>
                 
-                <p>שם: ___</p>
-                <p>ת.ז: ___</p>
-                <p>כתובת: ___</p>
-                <p>טלפון: ___</p>
+                <p>שם: <span id="n28">___</span></p>
+                <p>ת.ז: <span id="n29">___</span></p>
+                <p>כתובת: <span id="n30">___</span></p>
+                <p>טלפון: <span id="n31">___</span></p>
                 
                 <p style="margin: 20px 0; line-height: 1.8;">מתחייב בזאת באופן אישי, בלתי חוזר ובלתי מותנה, <strong>בערבות אוואל</strong>, לשלם לפקודת ניר חן יזמות בע"מ, ח.פ. 513475376 (להלן: "המוטב"), את מלוא הסכומים המגיעים על פי שטר החוב המפורט לעיל, בצירוף כל הריביות, העמלות, ההוצאות והנזקים.</p>
                 
@@ -665,11 +665,11 @@
                 <div style="margin-top: 40px; text-align: left;">
                     <p style="font-weight: 700;">ולראיה באתי על החתום:</p>
                     <div style="margin-top: 30px;">
-                        <p>שם הערב: ___</p>
-                        <p style="margin-top: 8px;">ת.ז: ___</p>
+                        <p>שם הערב: <span id="n32">___</span></p>
+                        <p style="margin-top: 8px;">ת.ז: <span id="n33">___</span></p>
                         <div style="border-bottom: 2px solid #000; width: 250px; height: 60px; margin: 15px 0;"></div>
                         <p>חתימה</p>
-                        <p style="margin-top: 10px;">תאריך: ___</p>
+                        <p style="margin-top: 10px;">תאריך: <span id="n34">___</span></p>
                     </div>
                 </div>
             </div>
@@ -858,15 +858,15 @@
             }
             
             // עדכון נספחים
-            for(let i=1; i<=25; i++) {
+            for(let i=1; i<=34; i++) {
                 const el = document.getElementById('n'+i);
                 if(el) {
-                    if([1,4,10,13,18,21].includes(i)) el.textContent = name;
-                    else if([2,5,11,14].includes(i)) el.textContent = id;
-                    else if([3,12,19].includes(i)) el.textContent = addr;
-                    else if([7,8,9,15,20,23].includes(i)) el.textContent = fdate;
+                    if([1,4,10,13,18,21,28,32].includes(i)) el.textContent = name;
+                    else if([2,5,11,14,26,29,33].includes(i)) el.textContent = id;
+                    else if([3,12,19,27,30].includes(i)) el.textContent = addr;
+                    else if([7,8,9,15,20,23,25,34].includes(i)) el.textContent = fdate;
                     else if(i==6) el.textContent = name;
-                    else if([16,24].includes(i)) el.textContent = phone;
+                    else if([16,24,31].includes(i)) el.textContent = phone;
                     else if(i==17) el.textContent = email;
                     else if(i==22) el.textContent = id;
                 }
