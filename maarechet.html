@@ -48,6 +48,12 @@
             .container { padding: 15px; }
             .page-break { page-break-before: always; }
             h2 { page-break-after: avoid; }
+            
+            /* צמצום נספח א' לעמוד אחד */
+            h2:contains("נספח א'") + div { 
+                font-size: 7px !important;
+                line-height: 1.1 !important;
+            }
         }
     </style>
 </head>
@@ -355,129 +361,88 @@
             <div class="page-break"></div>
             <h2>נספח א' – טופס ריכוז פרטים</h2>
             
-            <div style="border: 2px solid #333; padding: 15px; background: #fefefe;">
-                <h3 style="text-align: center; margin-bottom: 8px; font-size: 13px;">ריכוז פרטים עיקריים בהסכם ניכיון שטר (לרבות הסכם מסגרת לניכיון שטר)</h3>
-                <p style="font-size: 9px; text-align: center; margin-bottom: 10px; color: #666;">לתשומת ליבך, הפרטים המופיעים להלן מהווים תמצית בלבד. לקבלת מידע נוסף יש לעיין ביתר סעיפי ההסכם המצורף.</p>
+            <div style="border: 2px solid #333; padding: 8px; background: #fefefe;">
+                <h3 style="text-align: center; margin-bottom: 4px; font-size: 11px;">ריכוז פרטים עיקריים בהסכם ניכיון שטר (לרבות הסכם מסגרת לניכיון שטר)</h3>
+                <p style="font-size: 7px; text-align: center; margin-bottom: 5px; color: #666;">לתשומת ליבך, הפרטים המופיעים להלן מהווים תמצית בלבד. לקבלת מידע נוסף יש לעיין ביתר סעיפי ההסכם המצורף.</p>
                 
-                <p style="margin-bottom: 10px;"><strong>תאריך:</strong> <span id="n7">___</span></p>
+                <p style="margin-bottom: 5px; font-size: 8px;"><strong>תאריך:</strong> <span id="n7">___</span></p>
                 
-                <table style="font-size: 9px;">
+                <table style="font-size: 7px; margin: 3px 0;">
                     <tr>
-                        <th style="width: 70%;">פירוט</th>
-                        <th style="width: 30%;">הסכם ניכיון שטר</th>
+                        <th style="width: 70%; padding: 2px;">פירוט</th>
+                        <th style="width: 30%; padding: 2px;">הסכם ניכיון שטר</th>
                     </tr>
                     <tr>
-                        <td colspan="2" style="background: #e8e8e8; font-weight: 700;">פרטים כלליים</td>
+                        <td colspan="2" style="background: #e8e8e8; font-weight: 700; padding: 2px;">פרטים כלליים</td>
                     </tr>
                     <tr>
-                        <td>שם נותן שירותי האשראי + מספר מזהה</td>
-                        <td>ניר חן יזמות בע"מ, 513475376</td>
+                        <td style="padding: 2px;">שם נותן שירותי האשראי + מספר מזהה</td>
+                        <td style="padding: 2px;">ניר חן יזמות בע"מ, 513475376</td>
                     </tr>
                     <tr>
-                        <td>מען נותן שירותי האשראי + כתובת דוא"ל ומספר טלפון</td>
-                        <td>המלאכה 8 פארק אפק ראש העין, Nirchen2010@gmail.com, 03-6047177</td>
+                        <td style="padding: 2px;">מען נותן שירותי האשראי + דוא"ל וטלפון</td>
+                        <td style="padding: 2px;">המלאכה 8 פארק אפק ראש העין, Nirchen2010@gmail.com, 03-6047177</td>
                     </tr>
                     <tr>
-                        <td>שם הלווה + מספר מזהה</td>
-                        <td><span id="n1">___</span><span id="tradeNameDisplay2"></span>, ת.ז/עוסק מורשה <span id="n2">___</span></td>
+                        <td style="padding: 2px;">שם הלווה + מספר מזהה</td>
+                        <td style="padding: 2px;"><span id="n1">___</span><span id="tradeNameDisplay2"></span>, ת.ז/עוסק מורשה <span id="n2">___</span></td>
                     </tr>
                     <tr>
-                        <td>מען הלווה</td>
-                        <td><span id="n3">___</span></td>
+                        <td style="padding: 2px;">מען הלווה</td>
+                        <td style="padding: 2px;"><span id="n3">___</span></td>
                     </tr>
                     <tr>
-                        <td>שם הערב או הערבים + מספר מזהה</td>
-                        <td>_____________</td>
+                        <td style="padding: 2px;">שם הערב/ערבים + מספר מזהה</td>
+                        <td style="padding: 2px;">_____________</td>
                     </tr>
                     <tr>
-                        <td>מען הערב או הערבים</td>
-                        <td>_____________</td>
+                        <td colspan="2" style="background: #e8e8e8; font-weight: 700; padding: 2px;">ריבית פיגורים</td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="background: #e8e8e8; font-weight: 700;">ריבית פיגורים</td>
+                        <td style="padding: 2px;">שיעור ריבית הפיגורים - סעיף 5</td>
+                        <td style="padding: 2px;">שיעור העלות הממשית x 1.2 בחישוב שנתי</td>
                     </tr>
                     <tr>
-                        <td>שיעור ריבית הפיגורים<sup>(1)</sup> - סעיף 5</td>
-                        <td>שיעור העלות הממשית של האשראי כשהיא מוכפלת ב-1.2 בחישוב שנתי</td>
+                        <td style="padding: 2px;">שיעור ריבית הפיגורים המרבי - סעיף 5</td>
+                        <td style="padding: 2px;">שיעור העלות המרבית x 1.2, קרי 36% שנתי</td>
                     </tr>
                     <tr>
-                        <td>שיעור ריבית הפיגורים המרבי - סעיף 5</td>
-                        <td>שיעור העלות המרבית של האשראי כשהוא מוכפל ב-1.2 בחישוב שנתי, קרי 36% שנתי</td>
+                        <td colspan="2" style="background: #e8e8e8; font-weight: 700; padding: 2px;">נתונים נוספים</td>
                     </tr>
                     <tr>
-                        <td colspan="2" style="background: #e8e8e8; font-weight: 700;">נתונים נוספים</td>
+                        <td style="padding: 2px;">זכות לפירעון מוקדם - סעיף 7</td>
+                        <td style="padding: 2px; font-size: 6px;">הודעה מוקדמת 7 ימים + תשלום סכום התמורה + דמי טיפול + הגבוה מבין: עמלה יחסית או היוון לפי נוסחה</td>
                     </tr>
                     <tr>
-                        <td>קיומה של זכות לפירעון מוקדם ותנאיה<sup>(2)</sup> - סעיף 7</td>
-                        <td style="font-size: 8px;">פירעון מוקדם כפוף לכל אלה: (א) הלווה ימסור הודעה מוקדמת בכתב על פירעון מוקדם לפחות 7 ימי עסקים לפני מועד הפירעון המוקדם המבוקש; (ב) הלווה שילם לחברה את כל אלה: (1) סכום התמורה שקיבל הלווה; (2) סכום המפורט בטופס ריכוז הפרטים בגין דמי טיפול עבור פירעון מוקדם; (3) תשלום ששווה לגבוה מבין שני הבאים: א. עמלת הניכיון מחולקת במספר ימי ההלוואה (בתוספת מספר ימי הערך עד לפירעון השיק על ידי התאגיד הבנקאי) במכפלת מספר הימים מיום העמדת ההלוואה ועד 7 ימי עסקים לאחר מסירת הודעה מוקדמת על ידי הלווה; ב. תשלום המחושב בהתאם לנוסחת ההיוון המתפרסמת באתר האינטרנט של החברה, ככל שהתפרסמה.</td>
+                        <td style="padding: 2px;">צעדים בשל אי-תשלום - סעיף 8</td>
+                        <td style="padding: 2px; font-size: 6px;">העמדה לפירעון מיידי: חשש לאי-פירעון, עלייה בסיכון, הפרה יסודית, מצגים לא נכונים</td>
                     </tr>
                     <tr>
-                        <td>הצעדים, על פי הדין ועל פי החוזה, שרשאי נותן שירותי האשראי לנקוט בשל אי-תשלום במועד - סעיף 8; סעיף 7 לחוק אשראי הוגן</td>
-                        <td style="font-size: 8px;">בהתאם לקבוע בהסכם זה, לחברה קיימת זכות להעמדת ההלוואה לפירעון מיידי, אם התקיים אחד מאלה: (א) אם היה חשש ממשי לאי-פירעון ההלוואה; (ב) אם הסיכון לאי-פירעון ההלוואה גדל בשיעור ניכר; (ג) אם הייתה הפרה יסודית של הסכם זה; (ד) אם התברר כי איזה ממצגי, הצהרות או התחייבויות הלווה שבהסכם זה אינן נכונות; (ה) אם התקיימו תנאים אחרים המחייבים ביצוע מיידי של פעולה של העמדה לפירעון מוקדם לגבי ההלוואה.</td>
-                    </tr>
-                    <tr>
-                        <td>זהות הגורם המפקח על פעילותו של נותן שירותי האשראי</td>
-                        <td>רשות שוק ההון, ביטוח וחיסכון</td>
+                        <td style="padding: 2px;">הגורם המפקח</td>
+                        <td style="padding: 2px;">רשות שוק ההון, ביטוח וחיסכון</td>
                     </tr>
                 </table>
                 
-                <h4 style="margin: 12px 0 6px; font-size: 11px;">עמלות והוצאות נלוות להעמדת אשראי<sup>(3)</sup></h4>
+                <h4 style="margin: 5px 0 3px; font-size: 9px;">עמלות והוצאות נלוות</h4>
                 
-                <div style="border: 1px solid #999; padding: 8px; margin: 8px 0; background: #f9f9f9; font-size: 9px;">
-                    <p style="margin-bottom: 6px;"><strong>פירוט עמלות והוצאות הנלוות להעמדת האשראי שבאות בחשבון בשיעור העלות הממשית של האשראי:</strong></p>
-                    <ul style="margin: 4px 0 4px 15px;">
-                        <li>דמי גבייה (עמלה בגין כל שיק) - 55 ₪ כולל מע"מ</li>
-                        <li>עמלת תשלומים: מזומן – 0.5% מהתמורה ללקוח כולל מע"מ</li>
-                        <li>עמלת מוגבל – 75 ₪ כולל מע"מ</li>
-                        <li>דמי טיפול לשינוי פירעון – 25 ₪ כולל מע"מ</li>
-                    </ul>
+                <div style="border: 1px solid #999; padding: 4px; margin: 3px 0; background: #f9f9f9; font-size: 7px;">
+                    <p style="margin-bottom: 3px;"><strong>עמלות בחישוב העלות הממשית:</strong></p>
+                    <p style="margin: 1px 0;">• דמי גבייה: 55 ₪ כולל מע"מ | עמלת תשלומים מזומן: 0.5% | עמלת מוגבל: 75 ₪ | דמי שינוי פירעון: 25 ₪</p>
                     
-                    <p style="margin: 8px 0 6px;"><strong>פירוט עמלות והוצאות הנלוות להעמדת האשראי שאינן באות בחשבון בשיעור העלות הממשית של האשראי:</strong></p>
-                    <p style="margin-bottom: 4px;"><strong>(1) הוצאות (כוללות מע"מ) בסכום הגבוה מבין אלה<sup>(4)</sup>:</strong></p>
-                    <ul style="margin: 4px 0 4px 15px;">
-                        <li>30 ₪</li>
-                        <li>בהתאם לסכום הלוואת ניכיון השיק:
-                            <ul style="margin: 2px 0 2px 15px;">
-                                <li>בהלוואת ניכיון שיק שסכומה עד 10,000 ₪ – 1.5% מסכום השיק אך לא יותר מ-100 ₪</li>
-                                <li>בהלוואת ניכיון שיק שסכומה עולה על 10,000 ₪:
-                                    <ul style="margin: 2px 0 2px 15px;">
-                                        <li>אם ניתנה לפרק זמן שאינו עולה על 10 ימים – 1% מסכום השיק</li>
-                                        <li>אם ניתנה לפרק זמן העולה על 10 ימים – 1% מסכום השיק אך לא יותר מ-500 ₪</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
+                    <p style="margin: 3px 0 2px;"><strong>הוצאות שאינן בחישוב העלות:</strong></p>
+                    <p style="margin: 1px 0;"><strong>1.</strong> הגבוה מבין: 30 ₪ או לפי סכום הלוואה: עד 10,000 ₪ – 1.5% (מקס' 100 ₪) | מעל 10,000 ₪: עד 10 ימים – 1% | מעל 10 ימים – 1% (מקס' 500 ₪)</p>
+                    <p style="margin: 1px 0;"><strong>2.</strong> הוצאות לצד ג': אגרות רישום, שמאי, עו"ד, ביטוח, משלוח שיק</p>
                     
-                    <p style="margin: 8px 0 4px;"><strong>(2) הוצאות שמשלמת החברה או לווה לצד שלישי:</strong></p>
-                    <ul style="margin: 4px 0 4px 15px; font-size: 8px;">
-                        <li>אגרות לצורך רישום ובדיקת שעבודים וביטחונות במרשמים ציבוריים</li>
-                        <li>הערכת שמאי אגב שעבוד</li>
-                        <li>שכר טרחת עורך דין בעד ייפוי כוח נוטריוני, תצהיר ומתן שירותי נאמנות</li>
-                        <li>ביטוח חיים או ביטוח נכס</li>
-                        <li>הערכת שמאי חיצונית אגב שעבוד</li>
-                        <li>שכר טרחה המשולם לעורך דין בגין ייעוץ מיוחד</li>
-                        <li>משלוח שיק לשם ניכיונו</li>
-                    </ul>
-                    
-                    <p style="margin: 8px 0 4px;"><strong>הוצאות סבירות שהחברה רשאית להוציא לשם גביית תשלום:</strong></p>
-                    <ul style="margin: 4px 0 4px 15px;">
-                        <li>עמלת שיק חוזר - 46 ₪ כולל מע"מ</li>
-                        <li>מכתב התראה מעו"ד – 1% מגובה השיק ולא פחות מ-300 ₪ כולל מע"מ</li>
-                        <li>עלויות פתיחה וניהול תיק הוצל"פ – כקבוע בתקנות ההוצאה לפועל</li>
-                    </ul>
+                    <p style="margin: 3px 0 2px;"><strong>הוצאות גבייה:</strong></p>
+                    <p style="margin: 1px 0;">• שיק חוזר: 46 ₪ | מכתב התראה: 1% (מינימום 300 ₪) | הוצל"פ: כקבוע בתקנות</p>
                 </div>
                 
-                <div style="margin-top: 12px; font-size: 8px; color: #555;">
-                    <p><sup>(1)</sup> כמשמעו בחוק אשראי הוגן, בחישוב שנתי המביא בחשבון גם ריבית דריבית לפי הידוע במועד ההלוואה (חישוב שנתי ייעשה על בסיס 360 ימים בשנה).</p>
-                    <p><sup>(2)</sup> במידה והם ידועים במועד חתימת ההסכם – ראה לעניין הפרטים המפורטים בסעיף 3(ב)(11א) לחוק אשראי הוגן.</p>
-                    <p><sup>(3)</sup> לא כולל הוצאות שהן חלק מהליך גביית החוב.</p>
-                    <p><sup>(4)</sup> הסכומים הנקובים יתעדכנו ביום 1 בינואר של כל שנה לפי שיעור שינוי מדד המחירים לצרכן, הידוע ביום העדכון, לעומת המדד שפורסם בחודש דצמבר 2018.</p>
+                <div style="margin-top: 5px; font-size: 6px; color: #555; line-height: 1.3;">
+                    <p style="margin: 1px 0;">(1) בחישוב שנתי 360 ימים, כולל ריבית דריבית | (2) ראה סעיף 3(ב)(11א) לחוק אשראי הוגן | (3) לא כולל הוצאות גביית חוב | (4) סכומים מתעדכנים ב-1 בינואר מדי שנה לפי מדד המחירים (דצמבר 2018)</p>
                 </div>
                 
-                <div style="margin-top: 20px; border-top: 2px solid #333; padding-top: 10px;">
-                    <p><strong>חתימת הלווה:</strong> ______________</p>
-                    <p style="margin-top: 8px;"><strong>תאריך:</strong> <span id="n23">___</span></p>
+                <div style="margin-top: 8px; border-top: 1px solid #999; padding-top: 5px;">
+                    <p style="font-size: 8px;"><strong>חתימת הלווה:</strong> ______________ | <strong>תאריך:</strong> <span id="n23">___</span></p>
                 </div>
             </div>
             
