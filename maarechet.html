@@ -988,7 +988,17 @@
             const num = document.getElementById('houseNum').value;
             const city = document.getElementById('city').value;
             const zip = document.getElementById('zipCode').value;
-            const addr = (street && num && city) ? `${street} ${num}, ${city}${zip ? ', ' + zip : ''}` : '___';
+            
+            // בניית כתובת חכמה - רק מה שמולא
+            let addrParts = [];
+            if (street && num) addrParts.push(`${street} ${num}`);
+            else if (street) addrParts.push(street);
+            else if (num) addrParts.push(`מספר ${num}`);
+            
+            if (city) addrParts.push(city);
+            if (zip) addrParts.push(zip);
+            
+            const addr = addrParts.length > 0 ? addrParts.join(', ') : '___';
             const phone = document.getElementById('mobilePhone').value || '___';
             const email = document.getElementById('email').value || '___';
             const date = document.getElementById('signDate').value;
@@ -1034,6 +1044,18 @@
             if (attorneyRoleDisplay) attorneyRoleDisplay.textContent = attorneyRole;
             const attorneyPhoneDisplay = document.getElementById('attorneyPhoneDisplay');
             if (attorneyPhoneDisplay) attorneyPhoneDisplay.textContent = attorneyPhone;
+            
+            // עדכון ישירות של שדות n1, n2, n3, n16, n17 (נספח א' - פרטים בסיסיים)
+            const n1El = document.getElementById('n1');
+            if (n1El) n1El.textContent = name;
+            const n2El = document.getElementById('n2');
+            if (n2El) n2El.textContent = id;
+            const n3El = document.getElementById('n3');
+            if (n3El) n3El.textContent = addr;
+            const n16El = document.getElementById('n16');
+            if (n16El) n16El.textContent = phone;
+            const n17El = document.getElementById('n17');
+            if (n17El) n17El.textContent = email;
             
             // הצגת שם מסחרי
             const tradeNameText = tradeName ? ` (ע.ש "${tradeName}")` : '';
