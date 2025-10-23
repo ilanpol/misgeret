@@ -73,6 +73,1384 @@
             .page-break { page-break-before: always; }
             h2 { page-break-after: avoid; }
             
+            /* שמירת הלוגו בהדפסה */
+            .contract img[alt*="ניר חן"] {
+                max-width: 250px !important;
+                height: auto !important;
+                display: block !important;
+                margin: 15px auto !important;
+            }
+            
+            /* הדגשת כותרת ראשית בהדפסה */
+            .contract h1 {
+                font-size: 22px !important;
+                font-weight: 900 !important;
+                border-bottom: 3px solid #000 !important;
+                padding-bottom: 12px !important;
+                text-transform: uppercase !important;
+            }
+            
+            /* הדגשת תיבת הצדדים בהדפסה */
+            .contract > div[style*="border: 3px solid"] {
+                border: 3px solid #000 !important;
+                padding: 18px !important;
+                margin: 15px 0 !important;
+                background: #f0f0f0 !important;
+                page-break-inside: avoid !important;
+            }
+            
+            /* הדגשה בהדפסה */
+            .highlight { 
+                background: #fff9c4 !important; 
+                font-weight: 800 !important;
+                font-size: 13px !important;
+                padding: 1px 5px !important;
+            }
+            
+            span[id^="d"], span[id^="n"], span[id^="a"] {
+                font-weight: 800 !important;
+                font-size: 13px !important;
+                background: #fff9c4 !important;
+                padding: 1px 4px !important;
+            }
+            
+            /* הגדלת הנספחים */
+            .appendix-content {
+                font-size: 10px !important;
+                line-height: 1.4 !important;
+            }
+            
+            /* ייפוי כח - עיצוב מיוחד בהדפסה */
+            #attorneySection .appendix-content {
+                font-size: 10.5px !important;
+                line-height: 1.4 !important;
+            }
+            
+            #attorneySection .appendix-content h2 {
+                font-size: 15px !important;
+                margin: 10px 0 !important;
+            }
+            
+            #attorneySection .appendix-content h3 {
+                font-size: 12px !important;
+                margin: 10px 0 5px !important;
+            }
+            
+            #attorneySection .appendix-content p {
+                font-size: 10.5px !important;
+                margin-bottom: 4px !important;
+                line-height: 1.4 !important;
+            }
+            
+            #attorneySection .appendix-content table {
+                font-size: 10px !important;
+                margin: 10px 0 !important;
+            }
+            
+            #attorneySection .appendix-content table th {
+                font-size: 11px !important;
+                padding: 4px !important;
+            }
+            
+            #attorneySection .appendix-content table td {
+                font-size: 10px !important;
+                padding: 4px !important;
+            }
+            
+            #attorneySection .info-box {
+                font-size: 9.5px !important;
+                line-height: 1.35 !important;
+                padding: 7px !important;
+                margin: 10px 0 !important;
+            }
+            
+            .appendix-content table {
+                font-size: 11px !important;
+            }
+            
+            .appendix-content table th {
+                font-size: 12px !important;
+                padding: 5px !important;
+            }
+            
+            .appendix-content table td {
+                font-size: 11px !important;
+                padding: 5px !important;
+            }
+            
+            .appendix-content h3 {
+                font-size: 13px !important;
+            }
+            
+            .appendix-content p {
+                font-size: 10px !important;
+                margin-bottom: 4px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- טופס מילוי -->
+        <div class="form-section no-print">
+            <h2>📝 מילוי פרטי ההסכם</h2>
+            
+            <div class="info-box important" style="margin: 15px 0;">
+                <p style="font-weight: 700; font-size: 14px; color: #721c24;">⚠️ הסכם זה מיועד לעוסקים מורשים בלבד</p>
+                <p style="font-size: 12px; color: #721c24;">הסכם זה מיועד לניכיון שיקים של צד שלישי ו/או מתן הלוואות/מפרעות לעוסקים מורשים בלבד, שלא לשימוש אישי/ביתי/משפחתי.</p>
+            </div>
+            
+            <div class="info-box" style="margin: 15px 0; background: #d4edda; border-right-color: #28a745;">
+                <p style="font-weight: 700; font-size: 13px; color: #155724;">✅ מסמך מעודכן עם טופס מילוי מורחב</p>
+                <p style="font-size: 11px; color: #155724; margin-top: 5px;">
+                    • נוספו שדות לתחום עיסוק<br>
+                    • נוספו שדות לנתוני בנק (אופציונלי)<br>
+                    • נוספו שדות מפורטים למיופה כח / נציג<br>
+                    • נספח א' מתעדכן אוטומטית עם כל הפרטים
+                </p>
+            </div>
+            
+            <h3>פרטים אישיים</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>שם מלא / שם עוסק *</label><input type="text" id="fullName"></div>
+                <div class="form-group"><label>שם מסחרי</label><input type="text" id="tradeName" placeholder="אם קיים"></div>
+                <div class="form-group"><label>ת.ז / עוסק מורשה *</label><input type="text" id="idNumber" maxlength="9"></div>
+                <div class="form-group"><label>תאריך לידה / התאגדות</label><input type="date" id="birthDate"></div>
+                <div class="form-group"><label>מין *</label>
+                    <select id="clientGender" style="width: 100%; padding: 6px 10px; border-radius: 4px; font-size: 12px;">
+                        <option value="">בחר</option>
+                        <option value="זכר">זכר</option>
+                        <option value="נקבה">נקבה</option>
+                    </select>
+                </div>
+            </div>
+            
+            <h3>כתובת</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>רחוב *</label><input type="text" id="street"></div>
+                <div class="form-group"><label>מספר *</label><input type="text" id="houseNum"></div>
+                <div class="form-group"><label>עיר *</label><input type="text" id="city"></div>
+                <div class="form-group"><label>מיקוד</label><input type="text" id="zipCode"></div>
+            </div>
+            
+            <h3>קשר</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>נייד *</label><input type="tel" id="mobilePhone"></div>
+                <div class="form-group"><label>טלפון נוסף</label><input type="tel" id="additionalPhone"></div>
+                <div class="form-group"><label>דוא"ל *</label><input type="email" id="email"></div>
+                <div class="form-group"><label>תאריך *</label><input type="date" id="signDate"></div>
+            </div>
+            
+            <h3>פרטים עסקיים</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>תחום עיסוק *</label><input type="text" id="businessField" placeholder="למשל: סחר, שירותים, בניין"></div>
+            </div>
+            
+            <h3>פרטי בנק (אופציונלי)</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>שם הבנק</label><input type="text" id="bankName" placeholder="למשל: הפועלים, לאומי"></div>
+                <div class="form-group"><label>מספר בנק</label><input type="text" id="bankCode" maxlength="2" placeholder="12"></div>
+                <div class="form-group"><label>מספר סניף</label><input type="text" id="branchCode" maxlength="3" placeholder="456"></div>
+                <div class="form-group"><label>מספר חשבון</label><input type="text" id="accountNumber" placeholder="123456"></div>
+            </div>
+            
+            <h3>מיופה כח / נציג (אם רלוונטי)</h3>
+            <div class="form-grid">
+                <div class="form-group"><label>שם מיופה כח / נציג</label><input type="text" id="attorneyName" placeholder="אם ישנו"></div>
+                <div class="form-group"><label>ת.ז מיופה כח</label><input type="text" id="attorneyId" maxlength="9"></div>
+                <div class="form-group"><label>תפקיד</label><input type="text" id="attorneyRole" placeholder="למשל: מנכ״ל, שותף"></div>
+                <div class="form-group"><label>טלפון נציג</label><input type="tel" id="attorneyPhone"></div>
+                <div class="form-group"><label>מין</label>
+                    <select id="gender" style="width: 100%; padding: 6px 10px; border-radius: 4px; font-size: 12px;">
+                        <option value="">בחר</option>
+                        <option value="זכר">זכר</option>
+                        <option value="נקבה">נקבה</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="button-group">
+                <button class="btn-print" onclick="window.print()">🖨️ הדפס</button>
+                <button class="btn-reset" onclick="resetForm()">🔄 נקה</button>
+            </div>
+        </div>
+        
+        <!-- ההסכם המלא -->
+        <div class="contract">
+            <!-- לוגו החברה -->
+            <div style="text-align: center; margin: 20px 0 30px 0;">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAGLAkUDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKbJJHEhkldURRksxwAK8j8f/tH+EvC/m6foCtrGoplf3fECN3DP1z9Aa6MNha2Mn7KhFyl5GNfEUsND2lWSS8z1x3SNS7sFUckk4Arj/E3xe+HfhMvHq/iW2E6jPkw5lc+3ygj8zXyb4x+NXxD8XtJHea9PaWj5H2W0cxRlfRtuC3415+5JbJOSe9fa4DgavUSljJ8vktX9+35nymN4upUvdw0Obzei+7f8j6h8Rfte+HLZdnhrw7fXcgz812FiQ/TaxP6V57rv7WfxCv2/wCJRb2elD/pmiy/+jFNeMPUKxySsFjQsT2Aya+mocI5RhlepHm85N/pZHzGI4ozSu7U5cvov87s9Il/ab+NWSV8XhR6f2fa/wDxqq7/ALT3xuXkeM//ACnWn/xquJg8K+Jr7/jy8P6hPnp5du7fyFPn+HvjqNN8nhDV1X1Nm/8AhXdHCcP01y8tL58v66nkVsXn8/eUqvy5v0O0t/2rfjNbuGuPEkdyo6q1jbLn/vmKuw0f9t/XbVUi1/wnbXCr9+aKUhz77cAV8/X2ha1Y5+2aVdQY6+ZEy/zrCulYA5BFP/VnIserwpx9Yy/ydvwPPq8V8QZZ8VSWnSUb/mr/AIn3Z4X/AGxfhDr7xwX9zf6PKwwxvIBsB9ijMf0r13QvFfhvxNbJd6BrdpfROMqYpAT+XX9K/KJP9YPrXReH/Eev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" alt="קבוצת ניר חן בע״מ" style="max-width: 280px; height: auto; margin: 0 auto; display: block;">
+            </div>
+            
+
+            <h1 style="font-size: 26px; font-weight: 900; border-bottom: 3px solid #667eea; padding-bottom: 15px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px;">הסכם מסגרת לניכיון שיקים - עוסקים מורשים בלבד</h1>
+            
+            <div class="info-box important" style="margin: 15px 0; text-align: center;">
+                <p style="font-weight: 700; font-size: 13px;">⚠️ הסכם זה מיועד לעוסקים מורשים בלבד, לניכיון שיקים של צד שלישי ו/או מתן הלוואות/מפרעות, שלא לשימוש אישי/ביתי/משפחתי</p>
+            </div>
+            
+            <p style="text-align: center; margin-bottom: 15px; font-size: 16px; font-weight: 600;">שנערך ונחתם בראש העין ביום <span class="highlight" id="d1" style="font-size: 17px; padding: 3px 8px; font-weight: 900;">___</span></p>
+            
+            <div style="border: 3px solid #667eea; padding: 20px; margin: 20px 0; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 8px;">
+                <p style="font-size: 16px; margin-bottom: 15px;"><strong style="font-size: 18px; color: #667eea;">בין:</strong> <span style="background: #fff; padding: 6px 12px; border-radius: 4px; font-weight: 900; font-size: 17px; border: 2px solid #667eea; display: inline-block; margin: 5px 0;">ניר חן יזמות בע"מ</span>, ח.פ. <span style="font-weight: 800; font-size: 16px;">513475376</span>, <span style="font-weight: 800; font-size: 15px; color: #667eea;">רישיון אשראי מורחב 54604</span>, מרח' המלאכה 8 פארק אפק ראש העין (להלן: <strong style="color: #667eea;">"החברה"</strong>).</p>
+                <p style="margin: 15px 0; text-align: center; font-size: 18px; font-weight: 900; color: #667eea;">מצד אחד;</p>
+                
+                <p style="font-size: 16px; margin-top: 15px;"><strong style="font-size: 18px; color: #764ba2;">ובין:</strong> <span class="highlight" id="d2" style="font-size: 18px; padding: 6px 12px; font-weight: 900; border: 2px solid #764ba2; display: inline-block; margin: 5px;">___</span><span id="tradeNameDisplay" style="font-weight: 700; font-size: 15px;"></span>, מספר ת.ז/עוסק מורשה <span class="highlight" id="d3" style="font-size: 17px; padding: 6px 12px; font-weight: 900; border: 2px solid #764ba2;">___</span>, מ-<span id="d4" style="font-weight: 700; font-size: 15px;">___</span> טל' <span id="d5" style="font-weight: 700; font-size: 15px;">___</span> (להלן: <strong style="color: #764ba2;">"הלווה"</strong>).</p>
+                <p style="margin: 15px 0 0 0; text-align: center; font-size: 18px; font-weight: 900; color: #764ba2;">מצד שני;</p>
+            </div>
+            
+            <p style="margin: 10px 0;"><strong>הואיל:</strong> והלווה הינו עוסק מורשה המבקש מהחברה שירותי ניכיון שיקים של צד שלישי ו/או מתן הלוואות/מפרעות למטרות עסקיות בלבד, שלא לשימוש אישי, ביתי או משפחתי;</p>
+            <p><strong>והואיל:</strong> והחברה הסכימה לכך בכפוף לתנאים המפורטים בהסכם זה;</p>
+            <p><strong>והואיל:</strong> והצדדים מעוניינים להסדיר ביניהם את מכלול הזכויות והחובות שיחולו בקשר לאשראי כאמור;</p>
+            
+            <p style="margin: 10px 0; font-weight: 700;">לפיכך הוסכם בין הצדדים כדלקמן:</p>
+            
+            <h3>נספחים המצורפים להסכם זה:</h3>
+            <p>נספח א' – טופס ריכוז פרטים | נספח ב' – טופס משלים | נספח ג' – פרטי חשבון הבנק של הלווה | נספח ד' – שטר חוב | נספח ד1' – ערבות אוואל לשטר חוב | נספח ה' – כתב ערבות | נספח ו' – ייפוי כח (אם רלוונטי)</p>
+            
+            <h2>1. מבוא, פרשנות והגדרות</h2>
+            <p>1.1. המבוא להסכם זה ונספחיו מהווים חלק בלתי נפרד הימנו.</p>
+            <p>1.2. הכותרות בהסכם זה הן לנוחות בלבד ואין לעשות בהן כל שימוש לצורך פרשנות הסכם זה.</p>
+            <p>1.3. למונחים המפורטים להלן בהסכם תהא המשמעות המפורטת לצדם, כדלקמן:</p>
+            
+            <div style="margin: 10px 0;">
+                <p style="margin: 5px 0;"><strong>"הלווה"</strong> – כהגדרתו במבוא, שהוא יחיד או כל אחד מבין היחידים המהווים את הלווה, ביחד ולחוד, לרבות יורשיהם, אפוטרופסיהם ומנהלי עיזבונם וכל הבאים במקומם ו/או מטעמם. <span style="font-weight: 700; text-decoration: underline;">הלווה הינו עוסק מורשה כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976.</span></p>
+                
+                <p style="margin: 5px 0;"><strong>"החברה"</strong> – ניר חן יזמות בע"מ, ח.פ. 513475376, רישיון אשראי מורחב 54604, מרח' המלאכה 8 פארק אפק ראש העין, לרבות מורשיה, יורשיה, וכל הבאים במקומם ו/או מטעמם.</p>
+                
+                <p style="margin: 5px 0;"><strong>"שיקים"</strong> – שיקים של צד שלישי (שלא נמשכו מחשבון הלווה) או שיקים עצמיים (שנמשכו מחשבון הלווה) שנמסרו או יימסרו בידי הלווה לחברה לטובת ניכיון או כביטחון לחוב.</p>
+                
+                <p style="margin: 5px 0;"><strong>"שיק עצמי"</strong> – שיק הנמשך מחשבון הבנק של הלווה עצמו (להבדיל משיק של צד שלישי), אשר משמש כביטחון להלוואה או למפרעה.</p>
+                
+                <p style="margin: 5px 0;"><strong>"אשראי עסקי"</strong> – כל אשראי הניתן ללווה למטרות עסקיות בלבד, לרבות ניכיון שיקים של צד שלישי, ניכיון שיקים עצמיים, מתן הלוואות/מפרעות/מקדמות, שלא לשימוש אישי, ביתי או משפחתי.</p>
+                
+                <p style="margin: 5px 0;"><strong>"מפרעה/מקדמה"</strong> – סכום כספי שהחברה מעבירה ללווה ללא ניכיון מיידי של שיקים, כאשר הלווה מתחייב להביא שיקים של צד שלישי בעתיד לצורך קיזוז החוב. המפרעה/מקדמה יוצרת חוב פתוח שיש לכסותו על ידי הבאת שיקים תוך המועד שייקבע על ידי החברה.</p>
+                
+                <p style="margin: 5px 0;"><strong>"חובות תפעוליים"</strong> – כל חוב של הלווה לחברה הנובע מהחזרת שיקים, הוצאות בנקאיות, קנסות, עמלות, הוצאות משפטיות, או כל הוצאה אחרת שנגרמה לחברה בקשר לפעילות הלווה.</p>
+                
+                <p style="margin: 5px 0;"><strong>"סכום הניכיון"</strong> – הסכום אשר יועבר ישירות לחשבון הבנק של הלווה בקשר לניכיון של השיקים או מתן המפרעה/מקדמה, בניכוי הפרשי הריבית, העמלות, ההוצאות והתשלומים האחרים, במועד ביצוע העסקה, זאת בהתאם לנוהל המפורט בסעיף 2 להלן.</p>
+                
+                <p style="margin: 5px 0;"><strong>"יתרת החוב"</strong> – כל חובות הלווה לחברה, בין שבגין ניכיון שיקים של צד שלישי, ניכיון שיקים עצמיים, מפרעות/מקדמות, חובות תפעוליים, והן בכל דרך אחרת, לרבות חיובים קיימים והן חיובים עתידיים.</p>
+                
+                <p style="margin: 5px 0;"><strong>"יום העסקים"</strong> – כל יום שאינו יום שבת, יום שישי, ערב חג, חג או מועד.</p>
+            </div>
+            
+            <h2>1א. הצהרות והתחייבויות הלווה - עוסק מורשה ושימוש עסקי בלבד</h2>
+            
+            <div class="info-box important">
+                <p style="font-weight: 700; margin-bottom: 8px;">הלווה מצהיר ומאשר בזאת כדלקמן:</p>
+                
+                <p style="margin: 5px 0;">1א.1. <strong>הלווה הינו עוסק מורשה</strong> כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976, בעל תעודת עוסק מורשה (עוסק פטור) או אישור ניהול פנקסי חשבונות ורשומות לפי חוק עסקאות גופים ציבוריים.</p>
+                
+                <p style="margin: 5px 0;">1א.2. <strong>השימוש באשראי הוא למטרות עסקיות בלבד</strong> – הלווה מצהיר כי האשראי הניתן לו על פי הסכם זה, לרבות ניכיון שיקים של צד שלישי והלוואות/מפרעות, מיועד למטרות עסקיות בלבד, ולא לשימוש אישי, ביתי או משפחתי.</p>
+                
+                <p style="margin: 5px 0;">1א.3. <strong>ניכיון שיקים של צד שלישי בלבד</strong> – הלווה מצהיר כי השיקים המנוכים במסגרת הסכם זה הינם שיקים של צד שלישי בלבד (כלומר, שיקים שלא נמשכו מחשבון הבנק של הלווה עצמו), והמדובר בשיקים שהתקבלו אצל הלווה במסגרת עסקיו.</p>
+                
+                <p style="margin: 5px 0;">1א.4. <strong>ידוע ללווה כי:</strong></p>
+                <ul style="margin: 5px 0 5px 25px;">
+                    <li>הסכם זה מיועד לעוסקים מורשים בלבד ולא לצרכנים.</li>
+                    <li>על הסכם זה לא חלות מגבלות הריבית הקבועות בחוק האשראי ההוגן לעוסק מורשה בניכיון שיקים של צד שלישי, אלא המגבלה הפלילית בלבד (ריבית בנק ישראל + 30%).</li>
+                    <li>במקרה של שימוש באשראי למטרות אישיות/ביתיות/משפחתיות, הדבר יהווה הפרה יסודית של ההסכם.</li>
+                </ul>
+                
+                <p style="margin: 5px 0;">1א.5. <strong>הלווה מתחייב</strong> להודיע לחברה באופן מיידי במקרה של שינוי במעמדו כעוסק מורשה או במקרה שהאשראי נדרש למטרות שאינן עסקיות.</p>
+            </div>
+            
+            <h2>2. נוהל ניכיון השיקים</h2>
+            <p>2.1. החברה תהא רשאית, על פי שיקול דעתה הבלעדי ובכפוף לתנאי הסכם זה, לנכות ולהפקיד את השיקים של צד שלישי, לרבות השיקים הניתנים בערבות למקרה של החזרת שיקים אחרים. הלווה מצהיר ומסכים, כי החברה אינה מתחייבת לנכות שיקים אלא בהתאם לשיקול דעתה הבלעדי, ועל הלווה לבקש מהחברה בכתב באופן מפורש לנכות שיקים.</p>
+            
+            <p>2.2. לכל ניכיון שיקים אותם יבקש הלווה לנכות אצל החברה, יחולו התנאים הבאים:</p>
+            
+            <p style="margin-right: 15px;">2.2.1. הלווה ימציא לחברה את השיקים של צד שלישי להם הוא מבקש לקבל שירותי ניכיון.</p>
+            
+            <p style="margin-right: 15px;">2.2.2. החברה תבדוק את השיקים ותקבע האם מדובר בשיקים ישרים של צד שלישי אשר החברה מעוניינת לנכות עבור הלווה, והכל באופן בלעדי על פי שיקול דעתה של החברה בלבד.</p>
+            
+            <p style="margin-right: 15px;">2.2.3. במידה והחברה תחליט לנכות את השיקים, היא תודיע ללווה על הריבית והעמלה החלה על ניכיון השיקים בהתאם למועד פרעון השיק ואיכות השיק, ובהתאם לנוהל החברה וכלליה, הנתונים לשינויה בלעדי בלבד ובכל עת. סכום הניכיון יועמד לזכות חשבון הלווה בניכוי העמלות, הריבית וההוצאות.</p>
+            
+            <p style="margin-right: 15px;">2.2.4. הסכומים שיועברו לזכות חשבון הלווה, הינם נטו לאחר ניכוי הריבית, העמלות, וההוצאות הנוספות.</p>
+            
+            <p style="margin-right: 15px;">2.2.5. <strong>שיעור הריבית והעמלות:</strong></p>
+            
+            <div class="info-box" style="margin: 8px 0 8px 15px;">
+                <p style="font-weight: 700; margin-bottom: 6px;">שיעורי הריבית והעמלות:</p>
+                
+                <p style="margin: 4px 0;"><strong>א. קביעת שיעורים:</strong> שיעורי הריבית, העמלות וההוצאות יפורטו בטופס ריכוז הפרטים ובטופס המשלים עבור כל עסקת ניכיון, בהתאם להוראות חוק אשראי הוגן, התשנ"ג-1993.</p>
+                
+                <p style="margin: 4px 0;"><strong>ב. עלות אשראי כוללת:</strong> עלות האשראי השנתית (ריבית + עמלות) תעמוד על שיעור סביר ומקובל בשוק לניכיון שיקים, ובכל מקרה לא תעלה על המגבלה החוקית החלה על עוסקים מורשים.</p>
+                
+                <p style="margin: 4px 0;"><strong>ג. שיקול דעת:</strong> לחברה שיקול דעת בקביעת שיעור הריבית והעמלות בהתאם לאופי כל שיק ושיק, איכותו, מועד פרעונו, מדיניות החברה והסיכון הכרוך בעסקה.</p>
+                
+                <p style="margin: 4px 0;"><strong>ד. מגבלה חוקית:</strong> שיעור הריבית והעמלות לא יעלה על המגבלה הפלילית החלה על ניכיון שיקים של צד שלישי לעוסק מורשה (ריבית בנק ישראל + 30%).</p>
+                
+                <p style="margin: 4px 0; font-size: 11px; color: #666;"><em>* התשלום יבוצע מראש, והריבית תחושב על בסיס ימי ריבית בפועל ללא ריבית דריבית.</em></p>
+            </div>
+            
+            <p>2.3. לאחר שהלווה הודיע על כוונתו לנכות שיקים, יירשם בספריה של החברה סכום החוב של הלווה לחברה. סכום זה ייווצר מהסכום שקיבל הלווה בגין ניכיון השיקים וכן יתווספו לו עמלות וריביות כאמור. הלווה מאשר את אמיתות הרישומים בספרי החברה והכל על פי הנהלת חשבונות כדין. הלווה מאשר כי רישומי החברה מהווים ראיה לכל דבר ועניין.</p>
+            
+            <p>2.4. לחברה שיקול דעת בלעדי בכל הנוגע לסוגי השיקים אותם תנכה ולמועדי הפרעון של השיקים וסכומיהם, והלווה מקבל על עצמו, לא יהיו לו דרישות או טענות בעניין זה. הלווה מצהיר כי ידוע לו שהחברה אינה מחויבת לנכות כל שיק שהלווה ימציא לה.</p>
+            
+            <p>2.5. <strong>מפרעות, מקדמות, שיקים עצמיים וחובות תפעוליים:</strong></p>
+            
+            <div class="info-box" style="margin: 8px 0; background: #e8f4f8; border-right-color: #0288d1;">
+                <p style="font-weight: 700; margin-bottom: 10px; font-size: 14px; color: #01579b;">📋 סוגי אשראי וחובות נוספים במסגרת ההסכם</p>
+                <p style="margin: 6px 0; font-size: 12px; color: #01579b;">סעיף זה מסדיר את כל סוגי האשראי והחובות במסגרת ההסכם, כולל חובות פתוחים, הלוואות מגובות בשיקים עצמיים, וחובות תפעוליים.</p>
+                
+                <p style="margin: 10px 0 6px 0;"><strong>א. מפרעות ומקדמות - חוב פתוח עד להבאת שיקים של צד שלישי:</strong></p>
+                
+                <div style="background: white; padding: 8px; border-radius: 4px; margin: 6px 0;">
+                    <p style="margin: 4px 0; font-weight: 600;">א.1. עקרון המפרעה/מקדמה:</p>
+                    <p style="margin: 4px 0 4px 15px;">החברה רשאית, לפי שיקול דעתה הבלעדי, להעביר ללווה מפרעה או מקדמה כספית ללא ניכיון מיידי של שיקים של צד שלישי. במקרה זה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li><strong>יווצר חוב פתוח</strong> על שם הלווה אשר יירשם בספרי החברה מיד עם העברת הכספים.</li>
+                        <li>החוב יישא <strong>ריבית ועמלות</strong> כמפורט בסעיף 2.2.5 לעיל, והן יצטברו מיום העברת הכספים ועד למועד הבאת השיקים לכיסוי החוב.</li>
+                        <li>הלווה מתחייב להביא <strong>שיקים של צד שלישי בלבד</strong> (לא שיקים עצמיים) לכיסוי החוב תוך המועד שייקבע על ידי החברה.</li>
+                        <li>המועד הסטנדרטי להבאת שיקים הוא <strong>עד 30 ימים</strong> מיום קבלת המפרעה/מקדמה, אלא אם נקבע אחרת בכתב.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">א.2. מנגנון קיזוז החוב:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>כאשר הלווה מביא שיקים של צד שלישי, <strong>סכום הניכיון נטו</strong> (לאחר ניכוי ריבית ועמלות הניכיון) יקוזז כנגד החוב הפתוח.</li>
+                        <li>אם סכום הניכיון נטו גבוה מהחוב הפתוח - <strong>היתרה תועבר ללווה</strong>.</li>
+                        <li>אם סכום הניכיון נטו נמוך מהחוב הפתוח - <strong>הלווה יישאר חייב ביתרה</strong> ועליו להביא שיקים נוספים או לשלם את היתרה באמצעי תשלום אחר.</li>
+                        <li>החברה רשאית לקבוע את <strong>סדר הקיזוז</strong> של החובות לפי שיקול דעתה (למשל, קיזוז קודם של ריביות ועמלות).</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">א.3. ביטחונות למפרעה/מקדמה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>החברה רשאית לדרוש מהלווה <strong>שיקים עצמיים כביטחון</strong> למפרעה/מקדמה בסכום השווה או גבוה מסכום החוב.</li>
+                        <li>השיקים העצמיים ישמשו כ<strong>ביטחון בלבד</strong> ולא יוגשו לפירעון כל עוד הלווה עומד בהתחייבותו להביא שיקים של צד שלישי במועד.</li>
+                        <li>במקרה של אי הבאת שיקים במועד - החברה רשאית <strong>להגיש את השיקים העצמיים לפירעון</strong> ללא צורך בהתראה נוספת.</li>
+                        <li>החברה רשאית לדרוש <strong>ביטחונות נוספים</strong> כגון ערבויות אישיות, שעבודים או כל ביטחון אחר.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">א.4. התחייבויות הלווה במפרעה/מקדמה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>הלווה מתחייב להביא שיקים <strong>איכותיים</strong> של צד שלישי (לא שיקים חוזרים או שיקים של לקוחות בעייתיים).</li>
+                        <li>הלווה מתחייב <strong>לעדכן את החברה</strong> באופן שוטף על מצב הבאת השיקים.</li>
+                        <li>במידה והלווה צופה קושי בהבאת שיקים במועד - עליו <strong>להודיע מראש</strong> לחברה ולבקש ארכה בכתב.</li>
+                        <li><strong>אי הבאת שיקים במועד</strong> תיחשב כהפרה יסודית של ההסכם ותזכה את החברה בכל הסעדים המפורטים בסעיף 7 להלן.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">א.5. מצבי חירום ואי וודאות:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>במקרה שהלווה לא יכול להביא שיקים במועד מסיבות <strong>עסקיות לגיטימיות</strong> (למשל, עיכוב בתשלומים מלקוחותיו) - עליו לפנות לחברה בכתב ולבקש הסדר חלופי.</li>
+                        <li>החברה תשקול, לפי <strong>שיקול דעתה הבלעדי</strong>, האם להאריך את המועד, לדרוש ביטחונות נוספים, או לממש את הביטחונות הקיימים.</li>
+                        <li>במקרה של <strong>אי תשלום מכוון</strong> או הימנעות ממתן מידע - החברה תנקוט בכל האמצעים המשפטיים העומדים לרשותה.</li>
+                    </ul>
+                </div>
+                
+                <p style="margin: 10px 0 6px 0;"><strong>ב. שיקים עצמיים (הלוואת סולו) - ניכיון שיקים מחשבון הלווה עצמו:</strong></p>
+                
+                <div style="background: white; padding: 8px; border-radius: 4px; margin: 6px 0;">
+                    <p style="margin: 4px 0; font-weight: 600;">ב.1. מהות הלוואת הסולו:</p>
+                    <p style="margin: 4px 0 4px 15px;">החברה רשאית, לפי שיקול דעתה הבלעדי, לנכות שיקים עצמיים של הלווה (שיקים הנמשכים מחשבון הבנק של הלווה עצמו) במסגרת מתן הלוואה או מפרעה. מדובר ב<strong>"הלוואת סולו"</strong> שבה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>הלווה מקבל סכום כסף מהחברה ומוסר לה <strong>שיק/שיקים עצמיים</strong> במועדים עתידיים.</li>
+                        <li>השיקים העצמיים משמשים כ<strong>אמצעי פירעון</strong> של ההלוואה.</li>
+                        <li>החברה תגיש את השיקים העצמיים <strong>לפירעון במועדים שנקבעו</strong> עליהם.</li>
+                        <li>על ההלוואה יחולו <strong>ריבית ועמלות</strong> כמפורט בסעיף 2.2.5 לעיל.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ב.2. אחריות מלאה של הלווה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>הלווה אחראי באופן <strong>מלא ומוחלט</strong> לכיסוי השיקים העצמיים במועד הפירעון.</li>
+                        <li>על הלווה לוודא שיש <strong>כיסוי מלא בחשבונו</strong> לפני מועד הפירעון של כל שיק עצמי.</li>
+                        <li>הלווה מתחייב <strong>לא לבטל את השיקים</strong> העצמיים ולא לעכב את פירעונם בכל דרך שהיא.</li>
+                        <li>הלווה מתחייב <strong>לא לסגור את החשבון</strong> שממנו נמשכים השיקים העצמיים עד לאחר פירעונם המלא.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ב.3. החזרת שיק עצמי - הפרה יסודית:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li><strong>אי כיסוי שיק עצמי</strong> או החזרתו מחוסר כיסוי תיחשב כהפרה יסודית של ההסכם.</li>
+                        <li>במקרה של החזרת שיק עצמי, הלווה יחויב ב:</li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li><strong>השבת מלוא סכום השיק</strong> בתוספת ריבית, הוצאות והפרשי הצמדה.</li>
+                            <li><strong>עמלת טיפול</strong> בשיעור של 10% מסכום השיק שהוחזר.</li>
+                            <li><strong>ריבית פיגורים</strong> כאמור בסעיף 5.3 להלן.</li>
+                            <li><strong>כל ההוצאות</strong> שנגרמו לחברה, לרבות הוצאות משפטיות ושכ"ט עו"ד.</li>
+                        </ul>
+                        <li>החברה תהא רשאית להכריז על <strong>מלוא יתרת החוב</strong> (כולל שיקים עצמיים נוספים שטרם הגיע מועד פירעונם) כמועדת למשיכה מיידית.</li>
+                        <li>החברה רשאית לנקוט בכל <strong>האמצעים המשפטיים</strong> כנגד הלווה, לרבות הגשת תלונה פלילית בגין מתן שיק ללא כיסוי.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ב.4. ביטחונות נוספים להלוואת סולו:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>החברה רשאית לדרוש <strong>ביטחונות נוספים</strong> להלוואת הסולו, כגון:</li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>שיקים עצמיים נוספים במועדים מאוחרים יותר.</li>
+                            <li>ערבויות אישיות של בעלי המניות או הדירקטורים.</li>
+                            <li>שעבודים על נכסים או חשבונות בנק.</li>
+                            <li>כל ביטחון אחר שתמצא לנכון.</li>
+                        </ul>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ב.5. הבדל בין הלוואת סולו למפרעה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li><strong>במפרעה</strong> - הלווה מתחייב להביא שיקים של צד שלישי לכיסוי החוב.</li>
+                        <li><strong>בהלוואת סולו</strong> - הלווה מוסר שיקים עצמיים שישמשו לפירעון החוב.</li>
+                        <li>במקרים מסוימים, החברה עשויה <strong>לשלב בין השניים</strong> - להעביר מפרעה ולדרוש שיקים עצמיים כביטחון, בציפייה שהלווה יביא שיקים של צד שלישי.</li>
+                    </ul>
+                </div>
+                
+                <p style="margin: 10px 0 6px 0;"><strong>ג. חובות תפעוליים - חובות שנוצרים עקב בעיות תפעוליות:</strong></p>
+                
+                <div style="background: white; padding: 8px; border-radius: 4px; margin: 6px 0;">
+                    <p style="margin: 4px 0; font-weight: 600;">ג.1. מהם חובות תפעוליים:</p>
+                    <p style="margin: 4px 0 4px 15px;">חובות תפעוליים הם חובות שנוצרים <strong>עקב בעיות או הוצאות</strong> שנגרמו לחברה בקשר להתנהלות הלווה, ולא חובות שנובעים מניכיון שיקים או מתן הלוואות רגילות. מבלי לגרוע מכלליות האמור, הלווה מתחייב לשאת בכל החובות התפעוליים הבאים:</p>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ג.2. סוגי חובות תפעוליים:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li><strong>החזרת שיקים:</strong></li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>החזרת כל שיק (בין אם של צד שלישי ובין אם שיק עצמי) מכל סיבה שהיא.</li>
+                            <li>הלווה יחויב בהשבת מלוא סכום השיק בתוספת ריבית, הוצאות, הפרשי הצמדה ועמלת טיפול של 10%.</li>
+                            <li>החוב נוצר <strong>מיד עם החזרת השיק</strong> ונרשם בספרי החברה.</li>
+                        </ul>
+                        
+                        <li><strong>הוצאות בנקאיות:</strong></li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>עמלות בנקאיות שגבה הבנק מהחברה בקשר לפעילות הלווה.</li>
+                            <li>עמלות הפקדה, עמלות פירעון, עמלות החזרה של שיקים.</li>
+                            <li>עמלות על העברות כספים, עמלות על ביטול שיקים וכו'.</li>
+                            <li>כל הוצאה בנקאית אחרת שנגרמה לחברה בגלל הלווה.</li>
+                        </ul>
+                        
+                        <li><strong>הוצאות משפטיות ותביעות:</strong></li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>שכר טרחת עורכי דין בגין טיפול בתיק הלווה.</li>
+                            <li>אגרות משפט, הוצאות הוצאה לפועל, אגרות בית משפט.</li>
+                            <li>הוצאות חוקר פרטי או חוות דעת מומחים.</li>
+                            <li>כל הוצאה משפטית אחרת שנגרמה בגלל הלווה.</li>
+                        </ul>
+                        
+                        <li><strong>קנסות ועמלות ניהול:</strong></li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>קנסות על איחורים בהבאת שיקים או בתשלומים.</li>
+                            <li>עמלות על טיפול בשיקים שהוחזרו או נפסלו.</li>
+                            <li>עמלות ניהול חוב (במקרה של חוב ממושך).</li>
+                            <li>עמלות על טיפול מיוחד או מאמץ חריג שנדרש מהחברה.</li>
+                            <li>כל עמלה או קנס אחר שייקבע על ידי החברה באופן סביר.</li>
+                        </ul>
+                        
+                        <li><strong>הוצאות תפעוליות אחרות:</strong></li>
+                        <ul style="margin: 2px 0 2px 20px;">
+                            <li>הוצאות נסיעה של נציגי החברה לטיפול בלווה.</li>
+                            <li>הוצאות על בדיקות אשראי או בירורים.</li>
+                            <li>הוצאות על הודעות, משלוחים, דואר רשום.</li>
+                            <li>כל הוצאה סבירה אחרת שנגרמה לחברה בקשר לטיפול בלווה או בחובותיו.</li>
+                        </ul>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ג.3. רישום וניהול חובות תפעוליים:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>כל חוב תפעולי <strong>יירשם מיד בספרי החברה</strong> עם היווצרותו.</li>
+                        <li>הלווה יקבל <strong>הודעה בכתב או בדוא"ל</strong> על החוב התפעולי ופירוטו.</li>
+                        <li>החוב התפעולי יישא <strong>ריבית</strong> כאמור בסעיף 5 להלן מיום רישומו.</li>
+                        <li>הלווה רשאי <strong>לקזז חובות תפעוליים</strong> על ידי הבאת שיקים של צד שלישי לניכיון, כאמור בסעיף ד' להלן.</li>
+                    </ul>
+                    
+                    <p style="margin: 6px 0 4px 0; font-weight: 600;">ג.4. אחריות הלווה לחובות תפעוליים:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>הלווה מקבל על עצמו <strong>אחריות מלאה</strong> לכל החובות התפעוליים.</li>
+                        <li>הלווה מתחייב <strong>לשלם את החובות התפעוליים</strong> באופן מיידי עם דרישה ראשונה של החברה.</li>
+                        <li>אי תשלום חובות תפעוליים עשוי להוביל ל<strong>הפסקת מתן שירותים</strong> נוספים על ידי החברה.</li>
+                        <li>החברה רשאית <strong>לקזז חובות תפעוליים</strong> מכל סכום שהיא חבה ללווה.</li>
+                    </ul>
+                </div>
+                
+                <p style="margin: 10px 0 6px 0;"><strong>ד. קיזוז והבאת שיקים לכיסוי חובות קיימים:</strong></p>
+                
+                <div style="background: white; padding: 8px; border-radius: 4px; margin: 6px 0;">
+                    <p style="margin: 4px 0 4px 15px;">הלווה רשאי לקזז חובות קיימים (בין אם ממפרעות, שיקים עצמיים, חובות תפעוליים או כל חוב אחר) על ידי הבאת שיקים של צד שלישי לניכיון. במקרה זה:</p>
+                    <ul style="margin: 4px 0 4px 30px; font-size: 12px;">
+                        <li>סכום הניכיון נטו (לאחר ניכוי ריבית ועמלות הניכיון) <strong>יקוזז כנגד החוב הקיים</strong>.</li>
+                        <li>אם סכום הניכיון נטו גבוה מהחוב הקיים - <strong>היתרה תועבר ללווה</strong>.</li>
+                        <li>אם סכום הניכיון נטו נמוך מהחוב הקיים - <strong>הלווה יישאר חייב ביתרה</strong>.</li>
+                        <li>החברה רשאית לקבוע את <strong>סדר הקיזוז של החובות</strong> לפי שיקול דעתה (למשל, קיזוז ראשון של חובות תפעוליים, לאחר מכן מפרעות, ולבסוף חובות מניכיון שיקים).</li>
+                        <li>הלווה יקבל <strong>דוח קיזוז</strong> המפרט את הסכומים שקוזזו.</li>
+                    </ul>
+                </div>
+                
+                <div style="margin: 10px 0; padding: 10px; background: #fff3cd; border-right: 4px solid #ffc107; border-radius: 4px;">
+                    <p style="margin: 0; font-weight: 700; font-size: 13px; color: #856404;">⚠️ הבהרה חשובה וחיונית:</p>
+                    <p style="margin: 4px 0 0 0; font-size: 12px; color: #856404;">כל האמור בהסכם זה בנוגע לשיקים של צד שלישי <strong>חל גם, בשינויים המחויבים</strong>, על מפרעות, מקדמות, שיקים עצמיים וחובות תפעוליים. הלווה מקבל על עצמו את כל ההתחייבויות וההצהרות המפורטות בהסכם גם לגבי סוגי אשראי וחובות אלה, לרבות ההוראות בדבר אחריות, החזרת שיקים, ריבית פיגורים, הפרות יסודיות, זכויות החברה וכל יתר הסעיפים.</p>
+                </div>
+            </div>
+            
+            <h2>3. אחריות בגין החזרת שיקים והבטחות מיוחדות</h2>
+            <p>3.1. הלווה אחראי באופן מלא ובלעדי לכל שיק שיוחזר לחברה, מכל סיבה שהיא, והוא מתחייב לפצות את החברה בגין הנזקים שייגרמו לה באופן מיידי ובמלואם. במידה ושיק יוחזר או ייפסל, החברה תהא רשאית להחזיר למשיכה מיידית את יתרת החוב או כל חלק ממנה לפי שיקול דעתה הבלעדי, וכן לחייב את הלווה בעמלה בשיעור של 10% מסכום השיק שהוחזר או נפסל.</p>
+            
+            <p>3.2. במקרה של החזרת שיק, הלווה מתחייב להשיב לחברה באופן מיידי את מלוא סכום השיק שהוחזר בצירוף ריבית והפרשי הצמדה במתכונת הלימה בנסיבות העניין, וכן את כל ההוצאות שהיו לחברה ו/או נזקיה בגין החזרת השיק (לרבות הוצאות משפטיות ושכר טרחת עורך דין).</p>
+            
+            <p>3.3. במקרה של החזרת שיק, הלווה מצהיר ומסכים, כי לפי דרישה ראשונה של החברה, הלווה ימציא לחברה במקום השיק שהוחזר, שיק חלופי של צד שלישי שיהיה בנוי על בנק אחר וייחתם בידי חותמים אחרים. שיק זה ייחתם על ידי מי שרשום כבעל נכס או כעבר (מסב) בניר הערך שהוחזר, ובלבד שלא יהיו הלווה או מי שנמנה עם הלווה על ניר ערך קודם בסדרת העברות/מסבות ניר הערך שהוחזר.</p>
+            
+            <p>3.4. אם השיק שהוחזר היה שיק של צד שלישי והלווה לא הצליח להחליפו במהירות בשיק אחר שעונה על כל התנאים לעיל, תוכל החברה, לפי שיקול דעתה הבלעדי, לתבוע את מסב השיק או בעל הנכס על-פי שיק זה, בדרך של תביעה משפטית ישירה או בדרך של פניה לרשויות החוק לשם הגשת תלונה פלילית, על-פי דיני העונשין.</p>
+            
+            <p>3.5. במקרה של החזרת שיק, יוצב הלווה כחייב אישית של כל מי שניתן לחייבו, בין אם הוא מסב השיק, או בעל הנכס או כל אדם אחר שיכול להתחייב בגין ניר הערך שהוחזר. בכל מקרה שבו יפסק כי יש לחייב את הלווה בגין החזרת השיק, יראו את הלווה כאחראי לשלם לחברה את כל הסכומים ששולמו, וכן את כל הנזקים, ההוצאות וההפסדים שייגרמו לחברה בגין החזרת השיק.</p>
+            
+            <p>3.6. הלווה מתחייב שלא למכור, להעביר או למסור את השיקים למישהו אחר, ולא לבצע בהם כל פעולה חוקית או עובדתית מלבד מסירתם לחברה. אם הלווה יפר התחייבות זו, יחויב בהשבת כל סכום שניכה בצירוף ריבית, הפרשי הצמדה והוצאות.</p>
+            
+            <p>3.7. הלווה מתחייב להעביר לחברה את כל המידע והפרטים הרלוונטיים בנוגע לשיקים המנוכים, לרבות פרטי החותמים על השיק, מסבי השיק, בעל הנכס ועוד, וזאת מיד עם דרישה ראשונה של החברה.</p>
+            
+            <h2>4. זכויות החברה והלווה</h2>
+            <p>4.1. החברה תהא רשאית לעשות כל שימוש בשיקים כפי שתמצא לנכון, והיא תהא רשאית בכל עת, לפי שיקול דעתה, להגיש את השיקים לפרעון, למסור אותם לצד שלישי או להחזיר אותם ללווה ולדרוש פירעון מיידי של יתרת החוב.</p>
+            
+            <p>4.2. מוסכם כי השיקים נשארים בבעלות הלווה עד אשר ייפרעו ויבוטלו, ואולם החזקתם והשליטה עליהם הינם ברשות החברה בלבד ועד למועד פרעונם. בכל מקרה בו לא ייפרע שיק כלשהו, או במקרה בו השיק יוחזר או לא ייפרע, הרי שזכויות הבעלות על השיק יעברו לחברה באופן מלא, והלווה מוותר על כל טענה בקשר לכך.</p>
+            
+            <p>4.3. הלווה מצהיר ומתחייב כי לא יפגע בזכויות החברה בשיקים ולא יעשה כל פעולה אשר עלולה לפגוע בזכויותיה או להקשות על גביית השיקים. אם יפר הלווה את התחייבותו זו, הוא יהיה אחראי לכל נזק שייגרם לחברה, והחברה תוכל לנקוט בכל האמצעים המשפטיים המוקנים לה.</p>
+            
+            <p>4.4. החברה רשאית לפי שיקול דעתה לדרוש מהלווה בכל עת מתן ערבויות נוספות, לרבות שיקים נוספים, או כל ביטחון אחר, ועל הלווה להיענות לדרישה כזו תוך 7 ימים מדרישת החברה. אי עמידה של הלווה בדרישה זו תהווה הפרה יסודית של ההסכם.</p>
+            
+            <p>4.5. החברה תהא רשאית לקזז כל סכום שהלווה חייב לה כנגד כל סכום שהחברה חבה ללווה, אם בכלל.</p>
+            
+            <h2>5. ריבית, עמלות והוצאות</h2>
+            <p>5.1. הריבית והעמלה יקבעו על פי נוהל החברה ועל פי שיקול דעתה הבלעדי, ולפי סוג השיק, איכותו, סכומו ומועד פרעונו, כאמור בסעיף 2.2.5 לעיל. שיעורי הריבית והעמלות עשויים להשתנות מעת לעת על פי שיקול דעת החברה, ובלבד שלא יעלו על המגבלה הפלילית (ריבית בנק ישראל + 30%).</p>
+            
+            <p>5.2. בנוסף לריבית ולעמלות, החברה תהא רשאית לגבות מהלווה את כל ההוצאות שייגרמו לה בקשר לניכיון השיקים, לרבות הוצאות בנקאיות, הוצאות משפטיות, שכ"ט עו"ד, מע"מ והוצאות אחרות.</p>
+            
+            <p>5.3. <strong>ריבית פיגורים (בהתאם לחוק אשראי הוגן):</strong></p>
+            
+            <div class="info-box warning" style="margin: 8px 0;">
+                <p style="font-weight: 700; margin-bottom: 6px;">במקרה של פיגור בפירעון החוב או בתשלום כל סכום שהלווה חייב לחברה:</p>
+                
+                <p style="margin: 4px 0;">הלווה יחויב בריבית פיגורים בשיעור של <strong>עד 120% מעלות האשראי השנתית</strong> (כלומר, עלות האשראי כפול 1.2), בהתאם לסעיף 7(א1) לחוק האשראי ההוגן, התשמ"ג-1983.</p>
+                
+                <p style="margin: 4px 0;">לדוגמה: אם עלות האשראי השנתית הינה X%, ריבית הפיגורים תהיה X% כפול 1.2.</p>
+                
+                <p style="margin: 4px 0; font-size: 11px; color: #856404;"><em>* ריבית הפיגורים תיגבה מעבר לריבית הרגילה ולעמלות.</em></p>
+            </div>
+            
+            <p>5.4. כל ריבית, עמלה והוצאה שתגבה החברה מהלווה תיווסף ליתרת החוב ותישא ריבית כאמור בהסכם זה, והלווה מסכים לכך במפורש.</p>
+            
+            <h2>6. התחייבויות הלווה ומצגיו</h2>
+            <p>6.1. הלווה מצהיר ומתחייב כי:</p>
+            
+            <p style="margin-right: 15px;">6.1.1. כל המידע שמסר לחברה הינו נכון, מדויק ומלא, וכי אין כל עיקול, שעבוד, עיכבון או זכות אחרת של צד שלישי על השיקים או על הסכומים שיתקבלו בגינם.</p>
+            
+            <p style="margin-right: 15px;">6.1.2. השיקים הינם שיקים של צד שלישי או שיקים עצמיים, ישרים וכשרים למשיכה, וכי אין כל מניעה חוקית או עובדתית לפרעונם במועדם.</p>
+            
+            <p style="margin-right: 15px;">6.1.3. הוא בעל הזכות המלאה והבלעדית על השיקים של צד שלישי שהתקבלו אצלו במסגרת עסקיו, וכי הוא רשאי למוסרם לחברה לניכיון. לגבי שיקים עצמיים - הוא מתחייב לוודא כיסוי מלא במועד הפירעון.</p>
+            
+            <p style="margin-right: 15px;">6.1.4. <strong>הוא עוסק מורשה</strong> כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976, ומחזיק בתעודת עוסק מורשה תקפה או באישור ניהול פנקסי חשבונות ורשומות.</p>
+            
+            <p style="margin-right: 15px;">6.1.5. <strong>האשראי מיועד למטרות עסקיות בלבד</strong> – האשראי הניתן לו על פי הסכם זה, לרבות ניכיון שיקים והלוואות/מפרעות, מיועד למטרות עסקיות בלבד, ולא לשימוש אישי, ביתי או משפחתי.</p>
+            
+            <p style="margin-right: 15px;">6.1.6. הוא לא נמצא בהליכי פירוק, פשיטת רגל, הקפאת הליכים או כל הליך משפטי דומה אחר.</p>
+            
+            <p style="margin-right: 15px;">6.1.7. הוא לא חדל פרעון ואינו צפוי להיות חדל פרעון במועד כלשהו.</p>
+            
+            <p style="margin-right: 15px;">6.1.8. אין כל הליך משפטי תלוי ועומד נגדו שעלול להשפיע על יכולתו לעמוד בהתחייבויותיו על פי הסכם זה.</p>
+            
+            <p style="margin-right: 15px;">6.1.9. הוא לא הסתיר מהחברה כל מידע רלוונטי בקשר לשיקים או למצבו הכלכלי.</p>
+            
+            <p style="margin-right: 15px;">6.1.10. <strong>לגבי מפרעות ומקדמות</strong> – במידה והוא מקבל מפרעה או מקדמה מהחברה, הוא מתחייב להביא שיקים של צד שלישי לכיסוי החוב במועד שנקבע, והוא מבין כי אי הבאת השיקים במועד תיחשב כהפרה יסודית של ההסכם.</p>
+            
+            <p>6.2. הלווה מתחייב להודיע לחברה באופן מיידי על כל שינוי במצגיו, במעמדו כעוסק מורשה, או בנסיבותיו הכלכליות שעלולות להשפיע על יכולתו לעמוד בהתחייבויותיו על פי הסכם זה.</p>
+            
+            <p>6.3. הלווה מתחייב לשתף פעולה עם החברה ולמסור לה כל מידע או מסמך שתדרוש ממנו, לרבות אישורים, דוחות כספיים, דוחות בנק, תעודת עוסק מורשה ומסמכים אחרים.</p>
+            
+            <h2>7. הפרות ותרופות</h2>
+            <p>7.1. כל אחד מהמקרים הבאים ייחשב כהפרה יסודית של ההסכם מצד הלווה:</p>
+            
+            <p style="margin-right: 15px;">7.1.1. החזרת שיק (בין אם של צד שלישי ובין אם שיק עצמי) או אי פירעונו במועדו.</p>
+            
+            <p style="margin-right: 15px;">7.1.2. אי תשלום כל סכום שהלווה חייב לחברה במועדו, לרבות חובות תפעוליים.</p>
+            
+            <p style="margin-right: 15px;">7.1.3. <strong>אי הבאת שיקים במועד</strong> – אי הבאת שיקים של צד שלישי לכיסוי מפרעה או מקדמה תוך המועד שנקבע על ידי החברה.</p>
+            
+            <p style="margin-right: 15px;">7.1.4. <strong>אי כיסוי שיק עצמי</strong> – אי כיסוי שיק עצמי במועד פירעונו או החזרתו מחוסר כיסוי.</p>
+            
+            <p style="margin-right: 15px;">7.1.5. מסירת מידע כוזב או מטעה לחברה, לרבות לגבי מעמדו כעוסק מורשה או לגבי מטרת השימוש באשראי.</p>
+            
+            <p style="margin-right: 15px;">7.1.6. שימוש באשראי למטרות אישיות, ביתיות או משפחתיות, בניגוד להצהרות הלווה.</p>
+            
+            <p style="margin-right: 15px;">7.1.7. ביטול או אי חידוש תעודת העוסק המורשה של הלווה.</p>
+            
+            <p style="margin-right: 15px;">7.1.8. הפרת כל אחת מהתחייבויות הלווה על פי הסכם זה.</p>
+            
+            <p style="margin-right: 15px;">7.1.9. פתיחת הליכי פירוק, פשיטת רגל, הקפאת הליכים או כל הליך משפטי דומה אחר נגד הלווה.</p>
+            
+            <p style="margin-right: 15px;">7.1.10. מינוי כונס נכסים או נאמן לנכסי הלווה.</p>
+            
+            <p>7.2. במקרה של הפרה יסודית, החברה תהא רשאית לנקוט בכל אחד או יותר מהאמצעים הבאים:</p>
+            
+            <p style="margin-right: 15px;">7.2.1. להכריז על יתרת החוב כולה כמועדת למשיכה מיידית.</p>
+            
+            <p style="margin-right: 15px;">7.2.2. להפסיק באופן מיידי כל ניכיון נוסף של שיקים.</p>
+            
+            <p style="margin-right: 15px;">7.2.3. לממש כל ביטחון שבידיה, לרבות שיקים, ערבויות ושטרות.</p>
+            
+            <p style="margin-right: 15px;">7.2.4. לנקוט בכל הליך משפטי או אחר לגביית החוב, לרבות הגשת תביעה, הגשת בקשה לצו מניעה או כל תרופה משפטית אחרת.</p>
+            
+            <p style="margin-right: 15px;">7.2.5. לחייב את הלווה בכל ההוצאות והנזקים שייגרמו לה, לרבות הוצאות משפטיות ושכ"ט עו"ד.</p>
+            
+            <p>7.3. הלווה מתחייב לפצות את החברה בגין כל נזק, הוצאה או הפסד שייגרמו לה כתוצאה מהפרת ההסכם על ידו, וזאת באופן מיידי ובמלואם.</p>
+            
+            <h2>8. ערבות</h2>
+            <p>8.1. במידה והלווה הינו תאגיד, בעלי המניות ו/או הדירקטורים בתאגיד יידרשו לחתום על ערבות אישית לכיסוי חובות הלווה לחברה, בנוסח שייקבע על ידי החברה.</p>
+            
+            <p>8.2. החברה תהא רשאית לדרוש ערבויות נוספות מהלווה, לרבות ערבויות בנקאיות, שעבודים על נכסים או כל ביטחון אחר.</p>
+            
+            <p>8.3. כל ערבות שתינתן לחברה תהיה ערבות אוטונומית ובלתי מותנית, והערב לא יוכל להעלות כל טענת הגנה או קיזוז כלפי החברה.</p>
+            
+            <h2>9. סמכות שיפוט ודין החל</h2>
+            <p>9.1. סמכות השיפוט הבלעדית בכל עניין הנוגע להסכם זה תהיה נתונה לבתי המשפט המוסמכים במחוז תל אביב בלבד.</p>
+            
+            <p>9.2. הדין החל על הסכם זה הוא הדין הישראלי בלבד.</p>
+            
+            <h2>10. הוראות כלליות</h2>
+            <p>10.1. <strong>תשלומים במזומן:</strong> הלווה רשאי לקבל תשלומים באמצעי תשלום במזומן, ובלבד שהדבר ייעשה בהתאם לכל דין, לרבות הוראות חוק הצמצום השימוש במזומן, התשע"ח-2018, והתקנות שהותקנו מכוחו. הלווה מצהיר ומתחייב כי הוא מכיר את הוראות חוק המזומן, לרבות ההגבלות על סכומי העסקאות במזומן, חובת הדיווח, ושמירת רישומים כנדרש בחוק. הלווה מתחייב לפעול בהתאם להוראות חוק המזומן ולא לבצע או לקבל כל תשלום במזומן בניגוד להוראות החוק. הלווה יהיה אחראי באופן בלעדי לכל נזק, קנס, עיצום כספי או הפסד שייגרמו לחברה כתוצאה מאי עמידתו של הלווה בהוראות חוק המזומן. במקרה של הפרת הוראות חוק המזומן על ידי הלווה, החברה תהא רשאית לבטל את ההסכם באופן מיידי ולדרוש פירעון מיידי של כל יתרת החוב.</p>
+            
+            <p>10.2. כל שינוי או תיקון להסכם זה יהיו תקפים רק אם נעשו בכתב ונחתמו על ידי שני הצדדים.</p>
+            
+            <p>10.3. ויתור או הימנעות של החברה מלאכוף זכות כלשהי על פי הסכם זה לא ייחשב כוויתור על אותה זכות או על זכויות אחרות.</p>
+            
+            <p>10.4. אם יימצא כי סעיף כלשהו בהסכם זה אינו תקף או אינו ניתן לאכיפה, הדבר לא ישפיע על תקפות שאר הסעיפים.</p>
+            
+            <p>10.5. הסכם זה מבטל ומחליף כל הסכם קודם, בעל פה או בכתב, בין הצדדים בנושאים המטופלים בהסכם זה.</p>
+            
+            <p>10.6. החברה רשאית להמחות את זכויותיה על פי הסכם זה לצד שלישי, והלווה מסכים לכך במפורש.</p>
+            
+            <p>10.7. הלווה לא יהיה רשאי להמחות או להעביר את זכויותיו או חובותיו על פי הסכם זה ללא הסכמה בכתב ומראש של החברה.</p>
+            
+            <p style="margin-top: 20px;"><strong>ולראיה באו הצדדים על החתום:</strong></p>
+            
+            <div style="display: flex; justify-content: space-between; margin-top: 30px;">
+                <div style="width: 45%;">
+                    <p><strong>החברה:</strong></p>
+                    <p style="font-weight: 700; font-size: 15px;">ניר חן יזמות בע"מ</p>
+                    <p style="font-size: 12px; margin-top: 3px;">ח.פ. 513475376 | רישיון אשראי מורחב 54604</p>
+                    <div style="border-bottom: 2px solid #000; height: 50px; margin: 10px 0;"></div>
+                    <p>חתימה וחותמת</p>
+                </div>
+                
+                <div style="width: 45%;">
+                    <p><strong>הלווה (עוסק מורשה):</strong></p>
+                    <p><span id="d6">___</span><span id="tradeNameDisplay2"></span></p>
+                    <div style="border-bottom: 2px solid #000; height: 50px; margin: 10px 0;"></div>
+                    <p>חתימה וחותמת עוסק</p>
+                    <p style="margin-top: 5px;">ת.ז / עוסק מורשה: <span id="d7">___</span></p>
+                    <p style="margin-top: 5px;">תאריך: <span id="d8">___</span></p>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח א' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח א' – טופס ריכוז פרטים</h2>
+                
+                <div class="info-box important" style="margin-bottom: 15px;">
+                    <p style="font-weight: 700;">אישור עוסק מורשה</p>
+                    <p>הלווה מצהיר ומאשר בזאת כי הוא עוסק מורשה כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976, וכי האשראי מיועד למטרות עסקיות בלבד, שלא לשימוש אישי/ביתי/משפחתי.</p>
+                </div>
+                
+                <h3>1. פרטים אישיים / עסקיים</h3>
+                <table>
+                    <tr>
+                        <th style="width: 50%;">שדה</th>
+                        <th style="width: 50%;">מידע</th>
+                    </tr>
+                    <tr>
+                        <td><strong>שם מלא / שם עוסק</strong></td>
+                        <td><span id="n1">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>מספר תעודת זהות / עוסק מורשה</strong></td>
+                        <td><span id="n2">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>כתובת מלאה</strong></td>
+                        <td><span id="n3">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>טלפון נייד</strong></td>
+                        <td><span id="n16">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>דואר אלקטרוני</strong></td>
+                        <td><span id="n17">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>תחום עיסוק</strong></td>
+                        <td><span id="businessFieldDisplay">___</span></td>
+                    </tr>
+                </table>
+                
+                <h3>2. פרטי בנק</h3>
+                <table>
+                    <tr>
+                        <th>שם הבנק</th>
+                        <th>מספר בנק</th>
+                        <th>מספר סניף</th>
+                        <th>מספר חשבון</th>
+                    </tr>
+                    <tr>
+                        <td><span id="bankNameDisplay">___</span></td>
+                        <td><span id="bankCodeDisplay">___</span></td>
+                        <td><span id="branchCodeDisplay">___</span></td>
+                        <td><span id="accountNumberDisplay">___</span></td>
+                    </tr>
+                </table>
+                
+                <h3>3. פרטי נציג / מורשה חתימה (אם רלוונטי)</h3>
+                <table>
+                    <tr>
+                        <th>שם מלא</th>
+                        <th>תעודת זהות</th>
+                        <th>תפקיד</th>
+                        <th>טלפון</th>
+                    </tr>
+                    <tr>
+                        <td><span id="attorneyNameDisplay">___</span></td>
+                        <td><span id="attorneyIdDisplay">___</span></td>
+                        <td><span id="attorneyRoleDisplay">___</span></td>
+                        <td><span id="attorneyPhoneDisplay">___</span></td>
+                    </tr>
+                </table>
+                
+                <h3>4. פרטי שיקים ראשוניים לניכיון</h3>
+                <table>
+                    <tr>
+                        <th>מספר שיק</th>
+                        <th>בנק</th>
+                        <th>סכום</th>
+                        <th>מועד פרעון</th>
+                        <th>חותם (צד שלישי)</th>
+                    </tr>
+                    <tr>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                    </tr>
+                </table>
+                
+                <div style="margin-top: 25px;">
+                    <p><strong>הצהרת הלווה:</strong></p>
+                    <p style="margin: 10px 0; line-height: 1.6;">אני הח"מ <span id="n4">___</span>, ת.ז/עוסק מורשה <span id="n5">___</span>, מצהיר ומאשר בזאת כי:</p>
+                    <ol style="margin: 10px 0 10px 25px; line-height: 1.6;">
+                        <li>אני עוסק מורשה כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976.</li>
+                        <li>האשראי המבוקש מיועד למטרות עסקיות בלבד, ולא לשימוש אישי, ביתי או משפחתי.</li>
+                        <li>השיקים המוגשים לניכיון הינם שיקים של צד שלישי בלבד.</li>
+                        <li>כל הפרטים שמסרתי נכונים ומדויקים.</li>
+                        <li>אני מבין כי על הסכם זה חלה המגבלה הפלילית בלבד (ריבית בנק ישראל + 30%).</li>
+                    </ol>
+                    
+                    <div style="margin-top: 25px;">
+                        <p>חתימה: ______________________</p>
+                        <p style="margin-top: 10px;">שם: <span id="n6">___</span></p>
+                        <p style="margin-top: 5px;">תאריך: <span id="n7">___</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח ב' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח ב' – טופס משלים</h2>
+                
+                <p style="margin: 10px 0;"><strong>תאריך:</strong> <span id="n8">___</span></p>
+                
+                <p style="margin: 10px 0;">אני הח"מ, <span id="n6">___</span><span id="tradeNameDisplay3"></span>, ת.ז/עוסק מורשה <span id="n22">___</span>, מאשר ומצהיר בזאת כדלקמן:</p>
+                
+                <h3>1. אישור קבלת תנאים</h3>
+                <p>1.1. קראתי את הסכם המסגרת לניכיון שיקים והבנתי את כל תנאיו.</p>
+                <p>1.2. אני מסכים לכל התנאים המפורטים בהסכם ובנספחיו.</p>
+                <p>1.3. ידוע לי כי החברה אינה מחויבת לנכות כל שיק שאגיש לה.</p>
+                <p>1.4. <strong>ידוע לי כי הסכם זה מיועד לעוסקים מורשים בלבד, לניכיון שיקים של צד שלישי, שלא לשימוש אישי/ביתי/משפחתי.</strong></p>
+                
+                <h3>2. הצהרות נוספות</h3>
+                <p>2.1. אני מצהיר כי כל המידע שמסרתי לחברה הינו נכון, מדויק ומלא.</p>
+                <p>2.2. <strong>אני מצהיר כי אני עוסק מורשה</strong> כהגדרתו בחוק עסקאות גופים ציבוריים, התשל"ו-1976.</p>
+                <p>2.3. <strong>אני מצהיר כי האשראי מיועד למטרות עסקיות בלבד</strong>, ולא לשימוש אישי, ביתי או משפחתי.</p>
+                <p>2.4. <strong>אני מצהיר כי השיקים המוגשים לניכיון הינם שיקים של צד שלישי בלבד</strong> (לא נמשכו מחשבוני).</p>
+                <p>2.5. אני מצהיר כי אין כל מניעה חוקית או עובדתית למתן השיקים לחברה לניכיון.</p>
+                <p>2.6. אני מתחייב לעדכן את החברה באופן מיידי על כל שינוי במצבי הכלכלי, במעמדי כעוסק מורשה, או בכל שינוי רלוונטי אחר.</p>
+                
+                <h3>3. אישור הבנה</h3>
+                <p>3.1. הוסבר לי ואני מבין כי בכל מקרה של החזרת שיק, אני אהיה אחראי להשיב את מלוא סכום השיק בצירוף ריבית, הוצאות ונזקים.</p>
+                <p>3.2. הוסבר לי ואני מבין כי החברה רשאית להכריז על יתרת החוב כולה כמועדת למשיכה מיידית בכל מקרה של הפרה.</p>
+                <p>3.3. הוסבר לי ואני מבין את שיעורי הריבית והעמלות החלים על ניכיון השיקים, כפי שיפורטו בטופס ריכוז הפרטים ובטופס המשלים.</p>
+                <p>3.4. <strong>הוסבר לי ואני מבין כי על הסכם זה חלה המגבלה הפלילית בלבד</strong> (ריבית בנק ישראל + 30%), בשל היותי עוסק מורשה המבצע ניכיון שיקים של צד שלישי למטרות עסקיות.</p>
+                
+                <h3>4. ויתור על טענות</h3>
+                <p>4.1. אני מוותר בזאת על כל טענה בקשר לתנאי ההסכם או לאופן ביצועו.</p>
+                <p>4.2. אני מוותר על כל טענת חוסר סמכות, כשירות משפטית או כל טענה דיונית אחרת.</p>
+                
+                <div style="margin-top: 30px;">
+                    <p style="font-weight: 700;">ולראיה באתי על החתום:</p>
+                    <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                        <div>
+                            <p>שם: <span id="n10">___</span></p>
+                            <p style="margin-top: 5px;">ת.ז: <span id="n11">___</span></p>
+                            <p style="margin-top: 5px;">כתובת: <span id="n12">___</span></p>
+                        </div>
+                        <div>
+                            <div style="border-bottom: 2px solid #000; width: 200px; height: 50px;"></div>
+                            <p style="margin-top: 5px;">חתימה וחותמת עוסק</p>
+                        </div>
+                        <div>
+                            <p>תאריך: <span id="n9">___</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח ג' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח ג' – פרטי חשבון הבנק של הלווה</h2>
+                
+                <p style="margin: 15px 0; font-weight: 700;">פרטי החשבון אליו יועבר סכום הניכיון:</p>
+                
+                <table style="margin: 20px 0;">
+                    <tr>
+                        <th style="width: 40%;">פרט</th>
+                        <th style="width: 60%;">מידע</th>
+                    </tr>
+                    <tr>
+                        <td><strong>שם בעל החשבון</strong></td>
+                        <td><span id="n13">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>מספר תעודת זהות / עוסק מורשה</strong></td>
+                        <td><span id="n14">___</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>שם הבנק</strong></td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td><strong>מספר בנק</strong></td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td><strong>מספר סניף</strong></td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td><strong>מספר חשבון</strong></td>
+                        <td>___</td>
+                    </tr>
+                    <tr>
+                        <td><strong>סוג חשבון</strong></td>
+                        <td>עו"ש עסקי / חסכון (סמן את הרלוונטי)</td>
+                    </tr>
+                </table>
+                
+                <div class="info-box important" style="margin: 20px 0;">
+                    <p style="font-weight: 700;">הצהרה:</p>
+                    <p>אני מצהיר ומאשר כי החשבון הבנקאי המפורט לעיל הינו חשבוני העסקי, וכי אני מורשה לקבל העברות כספיות לחשבון זה. אני מאשר כי החברה תהא רשאית להעביר את סכומי הניכיון לחשבון זה, וכי לא תהיה לי כל טענה בעניין זה.</p>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <p style="font-weight: 700;">ולראיה באתי על החתום:</p>
+                    <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                        <div>
+                            <p>שם: <span id="n18">___</span></p>
+                            <p style="margin-top: 5px;">ת.ז: ___</p>
+                            <p style="margin-top: 5px;">כתובת: <span id="n19">___</span></p>
+                        </div>
+                        <div>
+                            <div style="border-bottom: 2px solid #000; width: 200px; height: 50px;"></div>
+                            <p style="margin-top: 5px;">חתימה וחותמת עוסק</p>
+                        </div>
+                        <div>
+                            <p>תאריך: <span id="n20">___</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח ד' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח ד' – שטר חוב</h2>
+                
+                <p style="text-align: center; margin: 20px 0; font-size: 14px;">שטר חוב מס' ________</p>
+                
+                <p style="margin: 15px 0;"><strong>תאריך:</strong> <span id="n15">___</span></p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">אני הח"מ מתחייב בזאת כלפי המוטב:</p>
+                
+                <p>שם: ניר חן יזמות בע"מ</p>
+                <p>ח.פ: 513475376</p>
+                <p>רישיון אשראי מורחב: 54604</p>
+                <p>כתובת: רח' המלאכה 8 פארק אפק ראש העין</p>
+                
+                <p style="margin: 20px 0; line-height: 1.8;">מתחייב בזאת באופן אישי, בלתי חוזר ובלתי מותנה, לשלם למוטב את סך כל החובות וההתחייבויות שיגיעו ממני למוטב מכוח הסכם המסגרת לניכיון שיקים שנחתם ביני לבין המוטב ביום <span id="n23">___</span>, וכן כל תוספת, ריבית, עמלה, הוצאה או נזק שיגיעו למוטב.</p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">סכום החוב הכולל:</p>
+                <p>עד לסכום כולל של _______________ ש"ח (במילים: _______________), בצירוף כל הריביות, העמלות, ההוצאות והנזקים בהתאם להסכם.</p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">תנאי הפירעון:</p>
+                <p>החוב ישולם על פי לוח הפירעונות שייקבע על ידי המוטב, או לפי דרישתו הראשונה בכתב. במקרה של אי תשלום במועד, יחול שיעור ריבית פיגורים כמפורט בהסכם.</p>
+                
+                <div class="info-box warning" style="margin: 20px 0;">
+                    <p style="font-weight: 700;">אזהרה:</p>
+                    <p>שטר חוב זה כפוף לכל תנאי הסכם המסגרת, ובכלל זה להתחייבויותיי כעוסק מורשה ולשימוש באשראי למטרות עסקיות בלבד.</p>
+                </div>
+                
+                <div style="margin-top: 40px; text-align: left;">
+                    <p style="font-weight: 700;">ולראיה באתי על החתום:</p>
+                    <div style="margin-top: 30px;">
+                        <p>שם החייב: <span id="n21">___</span><span id="tradeNameDisplay4"></span></p>
+                        <p style="margin-top: 8px;">ת.ז / עוסק מורשה: <span id="n26">___</span></p>
+                        <p style="margin-top: 8px;">כתובת: <span id="n27">___</span></p>
+                        <p style="margin-top: 8px;">טלפון: <span id="n24">___</span></p>
+                        <div style="border-bottom: 2px solid #000; width: 250px; height: 60px; margin: 15px 0;"></div>
+                        <p>חתימה וחותמת עוסק</p>
+                        <p style="margin-top: 10px;">תאריך: ___</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח ד1' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח ד1' – ערבות אוואל לשטר חוב</h2>
+                
+                <p style="text-align: center; margin: 20px 0; font-size: 14px;">ערבות אוואל לשטר חוב מס' ________</p>
+                
+                <p style="margin: 15px 0;"><strong>תאריך:</strong> <span id="n25">___</span></p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">אני החתום מטה מתחייב בזאת כלפי המוטב:</p>
+                
+                <p>שם: <span id="n28">___</span></p>
+                <p>ת.ז: <span id="n29">___</span></p>
+                <p>כתובת: <span id="n30">___</span></p>
+                <p>טלפון: <span id="n31">___</span></p>
+                
+                <p style="margin: 20px 0; line-height: 1.8;">מתחייב בזאת באופן אישי, בלתי חוזר ובלתי מותנה, <strong>בערבות אוואל</strong>, לשלם לפקודת ניר חן יזמות בע"מ, ח.פ. 513475376, רישיון אשראי מורחב 54604 (להלן: "המוטב"), את מלוא הסכומים המגיעים על פי שטר החוב המפורט לעיל, בצירוף כל הריביות, העמלות, ההוצאות והנזקים.</p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">תנאי הערבות:</p>
+                <ol style="margin-right: 20px;">
+                    <li>ערבות זו הינה ערבות אוואל אוטונומית ובלתי תלויה, ואני מוותר על כל טענת הגנה או קיזוז.</li>
+                    <li>התחייבותי לפי ערבות זו הינה זהה להתחייבות החייב הראשי, ואני אשא באחריות משותפת ובלתי מסויגת.</li>
+                    <li>המוטב יהיה רשאי לפנות אלי ישירות לתשלום, מבלי שיהיה עליו לפנות תחילה לחייב הראשי.</li>
+                    <li>לא תהיה לי כל טענה כלפי המוטב בקשר למתן ארכות, פשרות או כל הסדר אחר עם החייב הראשי.</li>
+                    <li>ערבותי זו תישאר בתוקפה עד לפירעון מלא ומוחלט של כל החוב.</li>
+                </ol>
+                
+                <p style="margin: 20px 0; font-weight: 700;">הצהרה:</p>
+                <p>אני מצהיר כי אני בעל יכולת כלכלית לעמוד בהתחייבויותיי על פי ערבות זו, וכי לא הוסתר ממני כל מידע רלוונטי.</p>
+                
+                <div style="margin-top: 40px; text-align: left;">
+                    <p style="font-weight: 700;">ולראיה באתי על החתום:</p>
+                    <div style="margin-top: 30px;">
+                        <p>שם הערב: <span id="n32">___</span></p>
+                        <p style="margin-top: 8px;">ת.ז: <span id="n33">___</span></p>
+                        <div style="border-bottom: 2px solid #000; width: 250px; height: 60px; margin: 15px 0;"></div>
+                        <p>חתימה</p>
+                        <p style="margin-top: 10px;">תאריך: <span id="n34">___</span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="page-break"></div>
+            
+            <!-- נספח ה' -->
+            <div class="appendix-content">
+                <h2 style="text-align: center; margin: 15px 0;">נספח ה' – כתב ערבות</h2>
+                
+                <p style="text-align: center; margin: 20px 0; font-size: 14px;">כתב ערבות מס' ________</p>
+                
+                <p style="margin: 15px 0;"><strong>תאריך:</strong> ___</p>
+                
+                <p style="margin: 15px 0;">אל: ניר חן יזמות בע"מ, ח.פ. 513475376, רישיון אשראי מורחב 54604</p>
+                
+                <p style="margin: 15px 0; font-weight: 700;">הנדון: כתב ערבות</p>
+                
+                <p style="margin: 15px 0;">לבקשת <span id="tradeNameDisplay5"></span> (להלן: "החייב הראשי"), אנו הח"מ מתחייבים בזאת באופן אישי, בלתי חוזר ובלתי מותנה, כלפיכם כדלקמן:</p>
+                
+                <h3>1. התחייבות הערבים:</h3>
+                <p>1.1. אנו ערבים ביחד ולחוד, בערבות מוגבלת בסכום ובזמן, לתשלום כל החובות וההתחייבויות של החייב הראשי כלפיכם, בהתאם להסכם המסגרת לניכיון שיקים שנחתם ביניכם, עד לסכום כולל של _______________ ש"ח.</p>
+                
+                <p>1.2. ערבותנו זו חלה על כל החובות הנובעים מההסכם, לרבות קרן, ריבית, הפרשי הצמדה, עמלות, הוצאות ונזקים.</p>
+                
+                <h3>2. תנאי הערבות:</h3>
+                <p>2.1. ערבותנו זו הינה ערבות מלאה ובלתי מותנית, ואתם תהיו רשאים לפנות אלינו ישירות לתשלום מבלי שתהיו חייבים לפנות תחילה לחייב הראשי.</p>
+                
+                <p>2.2. אנו מוותרים בזאת על כל טענת הגנה, קיזוז או עכבון, ולא נעלה כל טענה בקשר למתן ארכות, פשרות או כל הסדר אחר שתעשו עם החייב הראשי.</p>
+                
+                <p>2.3. ערבותנו זו תישאר בתוקפה עד ליום _______________ או עד לפירעון מלא ומוחלט של כל החוב, המוקדם מבין השניים.</p>
+                
+                <h3>3. הצהרות הערבים:</h3>
+                <p>3.1. אנו מצהירים כי אנו בעלי יכולת כלכלית לעמוד בהתחייבויותינו על פי ערבות זו.</p>
+                
+                <p>3.2. אנו מצהירים כי קראנו את הסכם המסגרת לניכיון שיקים והבנו את תנאיו ואת היקף אחריותנו.</p>
+                
+                <p>3.3. אנו מצהירים כי לא הוסתר מאיתנו כל מידע רלוונטי הנוגע להסכם או למצבו הכלכלי של החייב הראשי.</p>
+                
+                <h3>4. פרטי הערבים:</h3>
+                
+                <table style="margin: 20px 0;">
+                    <tr>
+                        <th>שם מלא</th>
+                        <th>ת.ז</th>
+                        <th>כתובת</th>
+                        <th>טלפון</th>
+                        <th>חתימה</th>
+                    </tr>
+                    <tr>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td><div style="height: 40px;"></div></td>
+                    </tr>
+                    <tr>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td>___</td>
+                        <td><div style="height: 40px;"></div></td>
+                    </tr>
+                </table>
+                
+                <p style="margin-top: 30px; font-weight: 700;">תאריך: ___</p>
+            </div>
+            
+            <!-- נספח ו' - ייפוי כח -->
+            <div id="attorneySection" style="display: none;">
+                <div class="page-break"></div>
+                
+                <div class="appendix-content">
+                    <h2 style="text-align: center; margin: 12px 0; font-size: 16px;">נספח ו' – ייפוי כח בלתי חוזר</h2>
+                    
+                    <p style="text-align: center; margin: 12px 0; font-size: 14px;">ייפוי כח מס' ________</p>
+                    
+                    <p style="margin: 12px 0; font-weight: 700; font-size: 12px;">אני הח"מ:</p>
+                    
+                    <p style="font-size: 12px;">שם: <span id="a1">___</span><span id="tradeNameDisplay6"></span> (להלן: "הממנה") | ת.ז: <span id="a2">___</span> | מין: <span id="a15">___</span></p>
+                    
+                    <p style="margin: 14px 0; font-weight: 700; font-size: 12px;">ממנה בזאת את:</p>
+                    
+                    <p style="font-size: 12px;">שם: <span id="a3">___</span> (להלן: "המיופה כח") | ת.ז: <span id="a4">___</span></p>
+                    
+                    <p style="margin: 14px 0; line-height: 1.7; font-size: 11.5px;">להיות באי כוחי ובשמי, לכל דבר ועניין הקשור בהסכם המסגרת לניכיון שיקים עם ניר חן יזמות בע"מ, ח.פ. 513475376, ובכלל זה: (1) לחתום בשמי על כל מסמך, הסכם או טופס הנדרש; (2) להגיש בשמי שיקים לניכיון ולקבל את סכומי הניכיון; (3) לבצע כל פעולה אחרת הדרושה לביצוע ההסכם; (4) לייצג אותי בכל הליך משפטי הנוגע להסכם.</p>
+                    
+                    <div class="info-box important" style="margin: 14px 0; padding: 10px; font-size: 11px; line-height: 1.5;">
+                        <p style="font-weight: 700; margin-bottom: 6px;">הצהרות לגבי מעמד המיופה כח:</p>
+                        <p style="margin-bottom: 4px;">• <strong>היעדר נהנות:</strong> המיופה כח אינו נהנה בחשבון הבנק ואינו זכאי לכל תמורה או טובת הנאה.</p>
+                        <p style="margin-bottom: 4px;">• <strong>מעמד שליח:</strong> המיופה כח משמש כשלוח בלבד מטעמי ופועל אך ורק על פי הוראותיי.</p>
+                        <p style="margin-bottom: 4px;">• <strong>סיכון ואחריות:</strong> אני מקבל על עצמי באופן מלא ובלעדי את מלוא הסיכון והאחריות לכל פעולה של המיופה כח מכוח ייפוי כח זה.</p>
+                        <p>• <strong>אחריות וערבות המיופה כח:</strong> המיופה כח אינו פטור מאחריות, והוא ערב ואחראי באופן אישי ומלא לכל פעולה שהוא עשה ויעשה בשם הממנה (הלקוח) מכוח ייפוי כח זה. המיופה כח נושא באחריות משפטית, כלכלית ואזרחית מלאה לכל תוצאה הנובעת מפעולותיו.</p>
+                    </div>
+                    
+                    <p style="margin: 12px 0; font-size: 11px; line-height: 1.6;">ייפוי כח זה הינו בלתי חוזר ויישאר בתוקף עד לסיום מלא של כל ההתחייבויות על פי ההסכם. כל פעולה שתיעשה על ידי המיופה כח תחייב אותי במלואה.</p>
+                    
+                    <h3 style="margin-top: 14px; font-size: 13px;">פרטי הצדדים:</h3>
+                    <table style="margin: 12px 0; font-size: 11px;">
+                        <tr>
+                            <th>שם מלא</th>
+                            <th>ת.ז</th>
+                            <th>תאריך לידה</th>
+                            <th>מין</th>
+                            <th>מען</th>
+                        </tr>
+                        <tr>
+                            <td><span id="a5">___</span></td>
+                            <td><span id="a6">___</span></td>
+                            <td><span id="a7">___</span></td>
+                            <td><span id="a16">___</span></td>
+                            <td><span id="a8">___</span></td>
+                        </tr>
+                        <tr>
+                            <td><span id="a9">___</span></td>
+                            <td><span id="a10">___</span></td>
+                            <td><span id="a11">___</span></td>
+                            <td><span id="a12">___</span></td>
+                            <td><span id="a13">___</span></td>
+                        </tr>
+                    </table>
+                    
+                    <div style="margin-top: 20px;">
+                        <p style="font-weight: 700; margin-bottom: 15px; font-size: 12px;">ולראיה באו הצדדים על החתום:</p>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
+                            <div>
+                                <p style="font-weight: 700; margin-bottom: 8px; font-size: 11.5px;">חתימת הממנה (מייפה הכח):</p>
+                                <div style="border-bottom: 2px solid #000; height: 50px; margin: 8px 0;"></div>
+                                <p style="margin-top: 5px; font-size: 11px;">שם: <span id="a17">___</span></p>
+                                <p style="margin-top: 4px; font-size: 11px;">ת.ז: <span id="a18">___</span></p>
+                                <p style="margin-top: 4px; font-size: 11px;">תאריך: <span id="a14">___</span></p>
+                            </div>
+                            
+                            <div>
+                                <p style="font-weight: 700; margin-bottom: 8px; font-size: 11.5px;">חתימת המיופה כח:</p>
+                                <div style="border-bottom: 2px solid #000; height: 50px; margin: 8px 0;"></div>
+                                <p style="margin-top: 5px; font-size: 11px;">שם: <span id="a19">___</span></p>
+                                <p style="margin-top: 4px; font-size: 11px;">ת.ז: <span id="a20">___</span></p>
+                                <p style="margin-top: 4px; font-size: 11px;">תאריך: <span id="a21">___</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 25px; text-align: center; padding: 10px; background: #667eea; color: white; font-size: 11px;">
+                <p>מסמך זה נוצר בתאריך: <span id="n15">___</span></p>
+                <p style="margin-top: 5px;">© ניר חן יזמות בע"מ | כל הזכויות שמורות</p>
+                <p style="margin-top: 5px; font-weight: 700;">הסכם זה מיועד לעוסקים מורשים בלבד - בהתאם להוראות החוק</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function update() {
+            const name = document.getElementById('fullName').value || '___';
+            const tradeName = document.getElementById('tradeName').value;
+            const id = document.getElementById('idNumber').value || '___';
+            const street = document.getElementById('street').value;
+            const num = document.getElementById('houseNum').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zipCode').value;
+            
+            // בניית כתובת חכמה - רק מה שמולא
+            let addrParts = [];
+            if (street && num) addrParts.push(`${street} ${num}`);
+            else if (street) addrParts.push(street);
+            else if (num) addrParts.push(`מספר ${num}`);
+            
+            if (city) addrParts.push(city);
+            if (zip) addrParts.push(zip);
+            
+            const addr = addrParts.length > 0 ? addrParts.join(', ') : '___';
+            const phone = document.getElementById('mobilePhone').value || '___';
+            const email = document.getElementById('email').value || '___';
+            const date = document.getElementById('signDate').value;
+            const fdate = date ? new Date(date).toLocaleDateString('he-IL') : '___';
+            const birthDate = document.getElementById('birthDate').value;
+            const fbdate = birthDate ? new Date(birthDate).toLocaleDateString('he-IL') : '___';
+            
+            // פרטים עסקיים וכלכליים חדשים
+            const businessField = document.getElementById('businessField').value || '___';
+            const bankName = document.getElementById('bankName').value || '___';
+            const bankCode = document.getElementById('bankCode').value || '___';
+            const branchCode = document.getElementById('branchCode').value || '___';
+            const accountNumber = document.getElementById('accountNumber').value || '___';
+            
+            // ייפוי כח / נציג
+            const attorneyName = document.getElementById('attorneyName').value || '___';
+            const attorneyId = document.getElementById('attorneyId').value || '___';
+            const attorneyRole = document.getElementById('attorneyRole').value || '___';
+            const attorneyPhone = document.getElementById('attorneyPhone').value || '___';
+            const gender = document.getElementById('gender').value || '___';
+            const clientGender = document.getElementById('clientGender')?.value || '___';
+            
+            // עדכון שדות נספח א' - פרטים עסקיים
+            const businessFieldDisplay = document.getElementById('businessFieldDisplay');
+            if (businessFieldDisplay) businessFieldDisplay.textContent = businessField;
+            
+            // עדכון שדות נספח א' - פרטי בנק
+            const bankNameDisplay = document.getElementById('bankNameDisplay');
+            if (bankNameDisplay) bankNameDisplay.textContent = bankName;
+            const bankCodeDisplay = document.getElementById('bankCodeDisplay');
+            if (bankCodeDisplay) bankCodeDisplay.textContent = bankCode;
+            const branchCodeDisplay = document.getElementById('branchCodeDisplay');
+            if (branchCodeDisplay) branchCodeDisplay.textContent = branchCode;
+            const accountNumberDisplay = document.getElementById('accountNumberDisplay');
+            if (accountNumberDisplay) accountNumberDisplay.textContent = accountNumber;
+            
+            // עדכון שדות נספח א' - מיופה כח / נציג
+            const attorneyNameDisplay = document.getElementById('attorneyNameDisplay');
+            if (attorneyNameDisplay) attorneyNameDisplay.textContent = attorneyName;
+            const attorneyIdDisplay = document.getElementById('attorneyIdDisplay');
+            if (attorneyIdDisplay) attorneyIdDisplay.textContent = attorneyId;
+            const attorneyRoleDisplay = document.getElementById('attorneyRoleDisplay');
+            if (attorneyRoleDisplay) attorneyRoleDisplay.textContent = attorneyRole;
+            const attorneyPhoneDisplay = document.getElementById('attorneyPhoneDisplay');
+            if (attorneyPhoneDisplay) attorneyPhoneDisplay.textContent = attorneyPhone;
+            
+            // עדכון ישירות של שדות n1, n2, n3, n16, n17 (נספח א' - פרטים בסיסיים)
+            const n1El = document.getElementById('n1');
+            if (n1El) n1El.textContent = name;
+            const n2El = document.getElementById('n2');
+            if (n2El) n2El.textContent = id;
+            const n3El = document.getElementById('n3');
+            if (n3El) n3El.textContent = addr;
+            const n16El = document.getElementById('n16');
+            if (n16El) n16El.textContent = phone;
+            const n17El = document.getElementById('n17');
+            if (n17El) n17El.textContent = email;
+            
+            // הצגת שם מסחרי
+            const tradeNameText = tradeName ? ` (ע.ש "${tradeName}")` : '';
+            const tradeDisplays = ['tradeNameDisplay', 'tradeNameDisplay2', 'tradeNameDisplay3', 'tradeNameDisplay4', 'tradeNameDisplay5', 'tradeNameDisplay6'];
+            tradeDisplays.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = tradeNameText;
+            });
+            
+            // עדכון כל המקומות בהסכם
+            for(let i=1; i<=11; i++) {
+                const el = document.getElementById('d'+i);
+                if(el) {
+                    if([1,8,11].includes(i)) el.textContent = fdate;
+                    else if([2,6,9].includes(i)) el.textContent = name;
+                    else if([3,7,10].includes(i)) el.textContent = id;
+                    else if(i==4) el.textContent = addr;
+                    else if(i==5) el.textContent = phone;
+                }
+            }
+            
+            // עדכון נספחים
+            for(let i=1; i<=34; i++) {
+                const el = document.getElementById('n'+i);
+                if(el) {
+                    if([1,4,10,13,18,21,28,32].includes(i)) el.textContent = name;
+                    else if([2,5,11,14,26,29,33].includes(i)) el.textContent = id;
+                    else if([3,12,19,27,30].includes(i)) el.textContent = addr;
+                    else if([7,8,9,15,20,23,25,34].includes(i)) el.textContent = fdate;
+                    else if(i==6) el.textContent = name;
+                    else if([16,24,31].includes(i)) el.textContent = phone;
+                    else if(i==17) el.textContent = email;
+                    else if(i==22) el.textContent = id;
+                }
+            }
+            
+            // עדכון נספח ו' - ייפוי כח (אם רלוונטי)
+            if(attorneyName && attorneyName !== '___') {
+                const attorneySection = document.getElementById('attorneySection');
+                if (attorneySection) {
+                    attorneySection.style.display = 'block';
+                    const aFields = {
+                        'a1': name, 'a2': id, 'a3': attorneyName, 'a4': attorneyId,
+                        'a5': name, 'a6': id, 'a7': fbdate, 'a8': addr,
+                        'a9': attorneyName, 'a10': attorneyId, 'a11': '___',
+                        'a12': gender, 'a13': '___', 'a14': fdate,
+                        'a15': clientGender, 'a16': clientGender,
+                        'a17': name, 'a18': id, 'a19': attorneyName,
+                        'a20': attorneyId, 'a21': fdate
+                    };
+                    Object.entries(aFields).forEach(([id, value]) => {
+                        const el = document.getElementById(id);
+                        if (el) el.textContent = value;
+                    });
+                }
+            } else {
+                const attorneySection = document.getElementById('attorneySection');
+                if (attorneySection) attorneySection.style.display = 'none';
+            }
+        }
+        
+        document.querySelectorAll('input, select').forEach(el => el.addEventListener('input', update));
+        document.querySelectorAll('input, select').forEach(el => el.addEventListener('change', update));
+        
+        function resetForm() {
+            if(confirm('לנקות הכל?')) {
+                document.querySelectorAll('input').forEach(el => el.value = '');
+                document.getElementById('signDate').valueAsDate = new Date();
+                const genderEl = document.getElementById('gender');
+                if (genderEl) genderEl.value = '';
+                const clientGenderEl = document.getElementById('clientGender');
+                if (clientGenderEl) clientGenderEl.value = '';
+                update();
+            }
+        }
+        
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('signDate').valueAsDate = new Date();
+            update();
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הסכם מסגרת לניכיון שיקים - עוסקים מורשים</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'David Libre', 'Times New Roman', serif; line-height: 1.5; background: #f5f5f5; padding: 15px; font-size: 13px; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 25px; }
+        
+        .form-section { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+        .form-section h2 { color: white; margin-bottom: 12px; font-size: 20px; }
+        .form-section h3 { color: white; margin: 12px 0 8px; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 4px; }
+        .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .form-group label { display: block; color: white; margin-bottom: 4px; font-size: 12px; font-weight: 600; }
+        .form-group input { width: 100%; padding: 6px 10px; border-radius: 4px; font-size: 12px; border: 1px solid rgba(255,255,255,0.3); }
+        .button-group { display: flex; gap: 10px; margin: 12px 0; }
+        button { padding: 8px 18px; border: none; border-radius: 4px; font-size: 13px; font-weight: 700; cursor: pointer; color: white; }
+        .btn-print { background: #667eea; }
+        .btn-reset { background: #f5576c; }
+        
+        .contract { margin-top: 20px; }
+        .contract h1 { text-align: center; font-size: 20px; margin-bottom: 10px; font-weight: 700; }
+        .contract h2 { font-size: 15px; margin: 10px 0 6px; border-bottom: 2px solid #667eea; padding-bottom: 4px; font-weight: 700; }
+        .contract h3 { font-size: 14px; margin: 8px 0 5px; font-weight: 700; }
+        .contract h4 { font-size: 13px; margin: 6px 0 4px; font-weight: 700; }
+        .contract p { margin-bottom: 5px; text-align: justify; line-height: 1.6; }
+        .contract ul, .contract ol { margin: 5px 0 5px 18px; }
+        .contract li { margin-bottom: 4px; }
+        
+        .info-box { background: #f8f9fa; border-right: 4px solid #667eea; padding: 8px; margin: 6px 0; font-size: 12px; }
+        .info-box p { margin-bottom: 4px; }
+        .info-box.warning { background: #fff3cd; border-right-color: #ffc107; }
+        .info-box.important { background: #f8d7da; border-right-color: #dc3545; }
+        
+        /* הדגשה חזקה של שמות, ת.ז. ותאריכים */
+        .highlight { 
+            background: #fff9c4; 
+            padding: 2px 6px; 
+            border-radius: 2px; 
+            font-weight: 800;
+            font-size: 14px;
+        }
+        
+        /* הדגשה של כל התוכן שממולא דינמית */
+        span[id^="d"], span[id^="n"], span[id^="a"] {
+            font-weight: 800;
+            font-size: 14px;
+            color: #000;
+            background: #fff9c4;
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+        
+        table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 12px; }
+        table th, table td { border: 1px solid #ddd; padding: 6px; text-align: right; }
+        table th { background: #667eea; color: white; font-weight: 700; font-size: 13px; }
+        table td { font-size: 12px; }
+        
+        /* הדגשה של תאים בטבלאות */
+        table td span {
+            font-weight: 900;
+            font-size: 13px;
+        }
+        
+        .page-break { page-break-before: always; }
+        
+        @media print {
+            .form-section, .button-group, .no-print { display: none !important; }
+            body { padding: 0; background: white; font-size: 11px; }
+            .container { padding: 15px; }
+            .page-break { page-break-before: always; }
+            h2 { page-break-after: avoid; }
+            
             /* הדגשה בהדפסה */
             .highlight { 
                 background: #fff9c4 !important; 
